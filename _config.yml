@@ -1,10 +1,10 @@
 # Site settings
-title:       pixell中文版 
-email:       youremail@example.com 
-author:      John Otander
-description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
+title:       good's blog
+email:       21834288@qq.com 
+author:      good
+description: "介绍一些我喜欢的摇滚作品"
 baseurl:     ""
-url:         "http://pixyll.maxee.info"
+url:         "http://www.3fan.com"
 
 #Duoshuo short Name / 多说的shortname
 duoshuo: 
