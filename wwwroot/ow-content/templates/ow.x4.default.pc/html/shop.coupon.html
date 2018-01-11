@@ -1,0 +1,86 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$title}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<meta name="generator" content="openwbs {$version}" />
+<meta name="author" content="openwbs team" />
+<meta name="copyright" content="2008-2020 OpenWBS Inc." />
+<!--#include file="include.css.html"-->
+<link rel="stylesheet" href="../css/ow.shop.coupon.css" />
+</head>
+<body>
+<!--头部-->
+<!--#include file="include.header.html"-->
+
+
+<!--主内容区-->
+<div class="ow-coupon">
+    <div class="wrapper">
+        <div class="coupon-list">
+            <h1 class="header">优惠券</h1>
+            {coupon status="0"}
+            <div class="section clearfix">
+                {coupon:loop}
+                <div class="coupon-item coupon-item[coupon:i]" name="coupon" coupon_type="[coupon:coupon_type]">
+                    <a class="link" href="[coupon:link]" target="_blank">
+                    <dl>
+                        <dt>
+                            <div class="coupon-money"><em class="moneysb">￥</em><span class="money">[coupon:coupon_money]</span><span class="coupon-name">优惠券</span></div>
+                            {if:OW.trim("[coupon:coupon_type]")="c2"}
+                            <div class="point" name="coupon_exchange_point"><span>需要 [coupon:coupon_exchange_point] 积分兑换</span></div>
+                            {/if}
+                        </dt>
+                        <dd>
+                            <div class="get-time" name="get_time" is_get_timelimit="[coupon:is_get_timelimit]">
+                                <div class="span-dt">领取时间</div>
+                                <div class="span-dd" name="get_time_show"><%=OW.formatdatetime("[coupon:get_starttime]",0)%> 至 <%=OW.formatdatetime("[coupon:get_endtime]",0)%></div>
+                            </div>
+                            <div class="use-time" name="use_time" is_use_timelimit="[coupon:is_use_timelimit]">
+                                <div class="span-dt">使用时间</div>
+                                <div class="span-dd" name="use_time_show"><%=OW.formatdatetime("[coupon:use_starttime]",0)%> 至 <%=OW.formatdatetime("[coupon:use_endtime]",0)%></div>
+                            </div>
+                            <div class="use-min-money" use_min_money="[coupon:use_min_money]">
+                                <div class="span-dt">使用条件</div>
+                                <div class="span-dd">订单满 [coupon:use_min_money] 元可使用</div>
+                            </div>
+                        </dd>
+                    </dl>
+                    </a>
+                </div>
+                {/coupon:loop}
+            </div>
+            <div class="footer">
+                <div class="pager">[coupon:pages pagesize="30"]</div>
+            </div>
+            {/coupon}
+        </div>
+        <script type="text/javascript">
+        $(window).ready(function(){
+            var $coupon = $("div[name='coupon']");
+            $coupon.find("div[name='get_time']").each(function(){
+                if($(this).attr("is_get_timelimit")=="0"){
+                    $(this).hide();
+                    $(this).find("[name='get_time_show']").html('不限');
+                };
+            });
+            $coupon.find("div[name='use_time']").each(function(){
+                if($(this).attr("is_use_timelimit")=="0"){
+                    $(this).hide();
+                    $(this).find("[name='use_time_show']").html('不限');
+                };
+            });
+            
+        });
+        </script>
+    </div>
+</div>
+
+
+<!--底部-->
+<!--#include file="include.footer.html"-->
+
+</body>
+</html>

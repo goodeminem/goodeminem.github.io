@@ -1,0 +1,68 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$title}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<meta name="generator" content="openwbs {$version}" />
+<meta name="author" content="openwbs team" />
+<meta name="copyright" content="2008-2020 OpenWBS Inc." />
+<!--#include file="include.css.html"-->
+<link rel="stylesheet" href="../css/ow.shop.brand.css" />
+</head>
+<body>
+<!--头部-->
+<!--#include file="include.header.html"-->
+
+<!--主内容区-->
+<div class="ow-breadcrumb"><div class="wrapper"><h1>{$cate:name}</h1>{$breadcrumb}</div></div>
+<div class="ow-brand-category">
+    <div class="cate-section">
+        {brand cate_ids="{$cate:cate_id}"}
+        <ul class="ow-brand-list">
+          {brand:loop}
+          <li><a href="[brand:link]"><p class="logo"><img src="[brand:logo]" alt="[brand:name]"></p><h3 class="name">[brand:name]</h3></a></li>
+          {/brand:loop}
+        </ul>
+        {/brand}
+    </div>
+    <div class="ow-brand-goods">
+        {goods top="2000" brand_cate_id="{$cate:cate_id}"}
+        <ul name="goods">
+            {goods:loop}
+             <li class="li[goods:i]">
+                <div class="thumb"><a href="[goods:link]" title="[goods:title]" target="_blank"><img src="[goods:thumbnail]" alt="[goods:title]" title="[goods:title]"></a></div>
+                <div class="info">
+                    <h3 class="title"><a href="[goods:link]" title="[goods:title]" target="_blank">[goods:ctitle]</a></h3>
+                    {if:OW.isNotNul("[goods:subtitle]")}<p class="subtitle">[goods:subtitle]</p>{/if}
+                    <p class="price">{if:OW.int("[goods:point_set]")=1}<span class="point"><b>[goods:point_pay_amount]</b><em>积分</em><i>+</i></span>{/if}<span class="money"><em>{$moneysb}</em><b><%=OW.parsePrice("[goods:price]")%></b></span></p>
+                </div>
+            </li>
+            {/goods:loop}
+        </ul>
+        <div class="pager">
+        [goods:pages pagesize="30"]
+        </div>
+        {/goods}
+    </div>
+</div>
+
+
+<!--底部-->
+<!--#include file="include.footer.html"-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//积分价格
+	$(".price").each(function(){
+		var price = OW.parseMoney($(this).find(".money > b").html());
+		if(!price>0){
+			$(this).find(".money").hide();
+			$(this).find(".point > i").hide();
+		};
+	});
+});
+</script>
+</body>
+</html>

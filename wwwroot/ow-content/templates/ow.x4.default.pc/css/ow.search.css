@@ -1,0 +1,18 @@
+﻿
+body{ background-color:#fff; }
+
+.ow-search-header{ background:#fafafa; font-size:14px; padding:10px 0px;}
+.ow-search{}
+.ow-search .pager{ padding:30px 0px;}
+
+ul.ow-content-list{ }
+ul.ow-content-list li{ border-bottom:1px solid #eee; padding:20px 0px;}
+ul.ow-content-list li h3{ font-size:16px; font-weight:normal; height:24px; line-height:24px;}
+ul.ow-content-list li h3 a,
+ul.ow-content-list li h3 a:visited{ color:#222;}
+ul.ow-content-list li h3 a:hover{ color:#fc0000; text-decoration:none;}
+ul.ow-content-list li .byline{ color:#888; font-size:12px; padding:5px 0px;}
+ul.ow-content-list li .byline span{ padding-right:20px;}
+ul.ow-content-list li .summary{ color:#888; font-size:14px; line-height:150%;}
+
+font.keywords{ color:#f00;}

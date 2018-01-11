@@ -1,0 +1,41 @@
+/*注册登录*/
+.ow-logreg{ font-size:12px; margin:auto; max-width:640px; }
+.ow-logreg .form-section{ background:#f6f6f6; padding:0px 0px 40px 0px;}
+.ow-logreg .owui-cells{ margin-top:0px;}
+.ow-logreg .owui-label{ width:80px;}
+
+.verifycode img{ width:110px;}
+.get-mobile-code{ background:#f6f6f6; border:1px solid #aaa; display:inline-block; font-size:14px; height:38px; line-height:38px; width:112px; padding:0px; text-align:center; vertical-align:top; overflow:hidden;}
+.get-mobile-code:hover{ text-decoration:none;}
+.get-mobile-code i{ font-style:normal;}
+.get-mobile-code.disabled{ border-color:#bbb; color:#888;}
+
+.logreg-aux-section{ padding:10px 15px;}
+.logreg-aux-section dl dt { color:#666; font-size:12px; padding:5px 0px 5px 0px;}
+.logreg-aux-section dl dd { padding:5px 0px 0px 0px;}
+.logreg-aux-section dl dd .btn{ width:100%; padding-left:0px; padding-right:0px; text-align:center;}
+
+.login-apps{ padding:10px 15px;}
+.login-apps .header{ border-bottom:1px solid #eee; position:relative; padding-top:20px;}
+.login-apps .header span{ background:#f6f6f6; display:inline-block; position:absolute; top:10px; text-align:center; width:100px; left:50%; margin-left:-50px; }
+.login-apps .section{ padding:20px 0px 20px 0px;}
+.login-apps .section a.app-login{ background:#fff; background-position:6px center; background-repeat:no-repeat; border:1px solid #e6e6e6; display:inline-block; font-size:18px; height:36px; line-height:36px; margin-right:10px;  padding:6px 0px 6px 0px;  -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px; width:100%; text-align:center;}
+.login-apps .section a.app-login:hover{ background-color:#fafafa; border-color:#01b402; color:#01b402; text-decoration:none;}
+.login-apps .section a.app-weixin{ background-image:url("../images/icon-app-weixin.png");}
+.login-apps .section a.app-qq{ background-image:url("../images/icon-app-qq.png");}
+
+.ow-logout{ font-size:16px; padding:20px 20px;}
+.ow-logout p{ padding:0px 0px 5px 0px;}
+
+/*找回密码*/
+.ow-forget{}
+.ow-forget > .header{ zoom:1; overflow:auto;}
+.ow-forget > .header li{ display:inline-block; float:left; width:50%; }
+.ow-forget > .header li a{ background-color:#fff; border:1px solid #ddd; display:block; color:#666; font-size:14px; height:42px; line-height:42px; text-align:center; }
+.ow-forget > .header li a.by-mobile{ border-left:none;}
+.ow-forget > .header li a.by-email{ border-right:none;}
+.ow-forget > .header li.current a{ background-color:#fafafa; border:1px solid #eee;}
+.ow-forget .owui-cells{ margin-top:10px;}
+.ow-forget .success-tip{ font-size:14px; padding:15px; }
+
+

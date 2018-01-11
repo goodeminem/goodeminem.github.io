@@ -1,0 +1,18 @@
+﻿@charset "utf-8";
+body{ background:#fff; }
+
+.ow-header{ display:none;}
+.mbody{ background:#fff; }
+.ow-footer{ display:none;}
+
+.ow-cate-sider{ background:#fafafa; height:100%; width:100px; position:fixed; overflow-y:scroll;}
+.ow-cate-sider ul{ padding-bottom:80px;}
+.ow-cate-sider ul li{}
+.ow-cate-sider ul li a{ border-bottom:1px solid #eee; color:#666; display:block; font-size:14px; line-height:18px; overflow:hidden; padding:18px 10px 18px 5px; text-align:right;}
+.ow-cate-sider ul li.current a{ background:#fff; border-left:4px solid #c60000; padding-left:1px;}
+
+.ow-cate-list{ padding-left:110px;}
+.ow-cate-list section{ display:none; padding:5px 0px;}
+.ow-cate-list section ul{}
+.ow-cate-list section ul li a{ border-top:0px; border-bottom:1px solid #eee;}
+.ow-cate-list section .more{ padding:20px 0px; text-align:center;}

@@ -1,0 +1,46 @@
+@charset "utf-8";
+/** 
+ * Author : DX.Lin
+**/
+body{ background:#eee; min-width:640px; }
+.wrapper{ margin:auto; width:1000px;}
+
+.ow-regboot-header{ background:#fafafa; border-bottom:1px solid #eee; color:#888; height:64px; line-height:64px;}
+.ow-regboot-mbody{ margin:0px auto; padding:5px 0px; width:1000px;}
+.ow-regboot-footer{ font-size:14px; height:32px; line-height:32px; padding:5px 0px; text-align:center;}
+
+.ow-reg-success{ background:#fff; border:1px solid #d6d6d6; margin:50px auto 0px auto; width:800px; zoom:1; overflow:auto; }
+.ow-reg-success h1{ border-bottom:1px solid #f2f2f2; font-size:24px; font-weight:normal; margin:0px 20px; padding:15px 0px;}
+.ow-reg-success .section{ font-size:16px; margin:0px 20px; padding:15px 0px;}
+.ow-reg-success .do-line{ padding:20px 0px;}
+
+.ow-account-set{ background:#fff;  border:1px solid #d6d6d6; margin:50px auto 0px auto; width:1000px; zoom:1; overflow:auto; }
+.ow-account-set .left-section{ float:left; width:280px; overflow:hidden;}
+.ow-account-set .left-section .logo{ border-bottom:1px solid #f6f6f6; max-height:100px; padding:10px; width:280px; overflow:hidden;}
+.ow-account-set .left-section .logo img{ max-height:100px; max-width:260px; vertical-align:top;}
+.ow-account-set .right-section{ border-left:1px solid #eee; float:left; width:718px;}
+.ow-account-set .right-section h1{ font-size:24px; font-weight:normal; padding:20px 0px 20px 40px;}
+.ow-account-set .avatar-section{ font-size:14px; height:52px; padding:15px 10px 15px 10px; }
+.ow-account-set .avatar-section .avatar{float:left; }
+.ow-account-set .avatar-section .avatar img{ height:52px; width:52px;}
+.ow-account-set .avatar-section .userinfo .nickname{ color:#222; font-weight:bold; padding:0px 0px 0px 60px;}
+.ow-account-set .avatar-section .userinfo .username{ color:#888; padding-left:60px;}
+.ow-account-set .ow-formset-section{ padding:0px 0px 100px 0px; zoom:1; overflow:auto;}
+
+.form-set{}
+.form-set dl{ padding:10px 0px; zoom:1; overflow:auto;}
+.form-set dl dt{ float:left; font-size:14px; padding:4px 20px 0px 0px; text-align:right; width:130px;}
+.form-set dl dd{ padding-left:142px; }
+.form-set dl.text dd{ font-size:14px; padding-top:5px; }
+.form-set dl dd input.text{ font-size:14px; height:32px; line-height:32px; }
+.form-set dl dd input.text-login{width:240px;}
+.form-set dl dd input.text-verifycode{ width:80px;}
+.form-set dl dd input.text-mobile-code{ width:100px;}
+.form-set dl dd .get-mobile-code{ background:#f6f6f6; border:1px solid #aaa; display:inline-block; font-size:14px; height:34px; line-height:32px; width:138px; text-align:center;  vertical-align:top; overflow:hidden;}
+.form-set dl dd .get-mobile-code:hover{ text-decoration:none;}
+.form-set dl dd .get-mobile-code i{ font-style:normal;}
+.form-set dl dd .get-mobile-code.disabled{ border-color:#bbb; color:#888;}
+.form-set dl dd .verifycode img{ height:32px; vertical-align:middle;}
+.form-set dl dd .verifycode .fresh{ background:#f6f6f6; border:1px solid #aaa; display:inline-block; font-size:14px; height:32px; line-height:32px; width:39px; text-align:center;  vertical-align:top; overflow:hidden;}
+.form-set dl dd .verifycode .fresh:hover{ text-decoration:none;}
+.form-set dl.button dd .btn{ width:240px;}

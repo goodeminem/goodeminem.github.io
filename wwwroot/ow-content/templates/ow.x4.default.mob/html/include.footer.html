@@ -1,0 +1,97 @@
+﻿<nav class="ow-nav" id="ow_nav" style="display:none;">
+    <section>
+        <ul class="base" id="ow_nav_base">
+            {nav type="5" parent_id="0"}
+            {nav:loop}
+            <li class="n1" n1="true" i="[nav:i]" url="[nav:url]"><a class="n1" href="[nav:url]" style="background-image:url([nav:icon]);">[nav:name]</a>
+                {if:OW.int("[nav:children]")>0}
+                    <span class="caret"></span>
+                    {nav2 parent_id="[nav:nav_id]"}
+                    <div class="subnav" name="subnav" i="[nav:i]">
+                    <ul>
+                    {nav2:loop}
+                    <li class="n2"><a class="n2" href="[nav2:url]">[nav2:name]</a></li>
+                    {/nav2:loop}
+                    </ul>
+                    </div>
+                    {/nav2}
+                {/if}
+            </li>
+            {/nav:loop}
+            {/nav}
+        </ul>
+    </section>
+</nav>
+<footer class="ow-footer">
+    <div class="footer-section">
+        <div class="col-contact">{ow:contact}</div>
+        <div class="col-cates">
+            {nav type="2" parent_id="0"}
+            {nav:loop}
+            <dl class="item[nav:i]">
+               <dt>[nav:name]</dt>
+               {if:OW.int("[nav:children]")>0}
+               {nav2 parent_id="[nav:nav_id]"}
+               {nav2:loop}
+               <dd><a href="[nav2:url]" target="[nav2:target]">[nav2:name]</a></dd>
+               {/nav2:loop}
+               {/nav2}
+               {/if}
+            </dl>
+            {/nav:loop}
+            {/nav}
+            <div class="clear"></div>
+        </div>
+        <div class="col-qrcode">{ow:qrcode}</div>
+        <div class="copyright">Copyright &copy; <a href="{$site_url}" target="_blank">{$site_name}</a> 版权所有</div>
+        <div class="clear"></div>
+        <div class="icp"><a href="http://www.miitbeian.gov.cn" rel="nofollow" target="_blank">{$icp}</a><i class="stat">{$statistics}</i></div>
+    </div>
+    <!--以下是系统版权信息，购买商业授权之后方可去除！-->
+    <div class="powered">本站由<a href="http://www.openwbs.com" title="OpenWBS商城系统" target="_blank">OpenWBS商城系统</a>提供支持</div>
+    <!--版权信息结束-->
+    {$site_aux_footerjs}
+    {if:OW.int("{$kefu_open}")=1}{$kefu}{/if}
+</footer>
+<script type="text/javascript">
+function navFixing(){
+	$("body").css("padding-bottom","0px");
+	$(".ow-nav").css("position","relative");
+	if(OW.webHeight()<OW.webScreenHeight()){
+		$("body > section").height(OW.webScreenHeight()-$(".ow-header").height()-$(".ow-footer").height()-$(".ow-nav").height());
+	};
+};
+$(document).ready(function(){
+	//**当前导航
+	$(".ow-nav").find("li").each(function(){
+		var url = $(this).attr("url"),
+		href    = OW.currentURL();
+		if(!OW.isNull(url)){
+			if(OW.runMode>0){
+				var len = href.length-url.length;
+				if(href.indexOf(url)>-1 && href.indexOf(url)==len){
+					$(this).addClass("current");
+					return false;
+				};
+			}else{
+				var para = href.split("?")[1] || "";
+				if(OW.isNull(para)){
+					$("#main_nav").find("li:first").addClass("current");
+					return false;
+				}else if(para == url.split("?")[1]){
+					$(this).addClass("current");
+					return false;
+				};
+			};
+		};
+    });
+	//导航
+	OW.mobile.nav({omNav:$("#ow_nav"),baseNav:$("#ow_nav_base")});
+	//在线客服(mini:迷你模式,list:展开模式)
+	OW.client.serviceOnline({open:'{$service_online_open}',data:'{$service_online}',initType:"mini"});
+	//用户登录状态
+	OW.member.userStatus({userStatusSection:$("#user_status")});
+	//购物车
+	OW.shop.cartInit({cartAmountSection:$("[name='cart_amount']")});
+});
+</script>

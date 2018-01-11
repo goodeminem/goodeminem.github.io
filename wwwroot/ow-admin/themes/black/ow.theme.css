@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* 
+ * Author: DX.Lin
+ */
+.td-header > .header{ background:#424b5c;}
+ul.menu{ border-left:1px solid #38404e;}
+ul.menu li.m{ border-right:1px solid #373f4e;}
+ul.menu li.m a.m{ border-left:1px solid #4d5668;}
+ul.menu li.hover,
+ul.menu li.current a.m{ background:#373f4e;}
+ul.menu li.hover a.m,
+ul.menu li.current a.m{ border-left:1px solid #373f4e;}
+
+.ow-website a{ background:#333c4d; }
+.ow-website a:hover{ background:#272e3d; }

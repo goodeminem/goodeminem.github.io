@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$title}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<meta name="generator" content="OpenWBS {$version}" />
+<meta name="author" content="OpenWBS Team" />
+<meta name="copyright" content="2008-2020 OpenWBS Inc." />
+<!--#include file="include.css.html"-->
+<link rel="stylesheet" href="../css/ow.news.css" />
+</head>
+<body>
+<!--头部-->
+<!--#include file="include.header.html"-->
+<div class="ow-banner">{ad id="2" type="html"}</div>
+
+<!--主内容区-->
+<div id="mbody">
+    <div class="ow-breadcrumb"><div class="wrapper">{$breadcrumb}</div></div>
+    
+    <div class="ow-news-header">
+        <div class="wrapper">
+            <h1 class="title"><span>{$cate:name}</span></h1>
+            {cate parent_id="{$cate:cate_id}"}
+            <ul>
+                {cate:loop}<li {if:OW.trim("{$page:cate_id}")=OW.trim("[cate:cate_id]")}class="current"{/if}><a href="[cate:link]">[cate:name]</a></li>{/cate:loop}
+            </ul>
+            {/cate}
+        </div>
+    </div>
+    <div class="clear"></div>
+    
+    <!--内容列表-->
+    <div class="ow-news-list">
+        <div class="wrapper">
+            <div class="section">
+                {content top="2000" cate_id="{$cate:cate_id}" model="news" orderby="a.cid desc"}
+                <ul>
+                    {content:loop}
+                    <li class="li[content:i]">
+                        <div class="thumb"><a href="[content:link]"><img src="[content:thumbnail]" alt="[content:title]"></a></div>
+                        <div class="info">
+                            <h3 class="title"><a href="[content:link]">[content:title]</a></h3>
+                            <div class="summary"><%=OW.leftString("[content:summary]",36)%><span class="raquo"><a href="[content:link]" target="_blank">»</a></span></div>
+                            <div class="datetime" name="datetime" datetime="[content:update_time]">[content:update_time]</div>
+                        </div>
+                    </li>
+                    {/content:loop}
+                </ul>
+                <div class="pager">
+                    [content:pages pagesize="20"]
+                </div>
+                {/content}
+            </div>
+        </div>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            var opt = {y:"年前",m:"个月前",w:"周前",d:"天前",h:"小时前",n:"分钟前",s:"秒前"}
+            $("div[name='datetime']").each(function(){
+                var timeText = OW.timeAgoTip(opt,$(this).attr("datetime"),"<%=SYS_TIME%>");
+                $(this).html(timeText);
+            });
+            $(".pager").find("a").each(function(){
+                var url = $(this).attr("href") +"#list";
+                $(this).attr("href",url);
+            });
+        });
+        </script>
+    </div>
+    
+</div>
+
+
+<!--底部-->
+<!--#include file="include.footer.html"-->
+</body>
+</html>

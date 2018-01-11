@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$title}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<meta name="generator" content="OpenWBS {$version}" />
+<meta name="author" content="OpenWBS Team" />
+<meta name="copyright" content="2008-2020 OpenWBS Inc." />
+<!--#include file="include.css.html"-->
+<link rel="stylesheet" href="../css/ow.error404.css" />
+</head>
+<body>
+<!--头部-->
+<!--#include file="include.header.html"-->
+
+
+<!--主内容区-->
+<div id="mbody">
+    <div class="ow-error404">
+        <dl>
+            <dt>错误 404.0 - Not Found!</dt>
+            <dd class="tip-1">很抱歉，您访问的页面不存在！</dd>
+            <dd class="tip-2">服务器找不到这个页面，或者它已经被删除，或者它已经回火星去了...</dd>
+            <dd class="tip-en">Unfortunately the page you are trying to access does not exist or has been moved.</dd>
+        </dl>
+        <div class="referer">页面来源：<%=OW.getReferer()%></div>
+    </div>
+</div>
+
+
+<!--底部-->
+<!--#include file="include.footer.html"-->
+
+</body>
+</html>

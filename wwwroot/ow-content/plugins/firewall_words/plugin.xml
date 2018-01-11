@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<plugin version="2.0">
+  <code>firewall_words</code>
+  <name>词语防火墙</name>
+  <logo>logo.png</logo>
+  <url>http://www.openwbs.com/plugins/firewall_words.html</url>
+  <note>启用此应用可以屏蔽某些非法词语</note>
+  <author>
+    <name>林晓东</name>
+    <email>1071322670@qq.com</email>
+    <url>http://www.openwbs.com/</url>
+  </author>
+  <adapted>130306</adapted>
+  <version>1.0</version>
+  <pubdate>2014-03-06 20:00:00</pubdate>
+  <modified>2014-03-06 20:00:00</modified>
+  <description></description>
+  <price>0</price>
+</plugin>

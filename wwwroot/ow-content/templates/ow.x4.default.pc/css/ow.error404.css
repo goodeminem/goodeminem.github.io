@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* 
+ * Author:CK
+ */
+.ow-error404{ height:300px; margin:10px auto; padding:50px; max-width:1200px; }
+.ow-error404 dl{}
+.ow-error404 dl dt{ font-size:24px;}
+.ow-error404 dl dd.tip-1{ border-top:1px dotted #ccc; font-size:22px; padding:10px 0px;}
+.ow-error404 dl dd.tip-2{ font-size:18px; padding:5px 0px;}
+.ow-error404 dl dd.tip-en{ font-size:14px; padding:5px 0px;}
+.ow-error404 .referer{ padding:10px 0px;}

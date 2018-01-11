@@ -1,0 +1,53 @@
+﻿<div id="header">
+    <div class="toper">
+        <div class="wrapper">
+            <div class="top-nav">
+                {nav type="0" parent_id="0"}
+                {nav:loop}
+                <a class="link" href="[nav:url]" target="[nav:target]">[nav:name]</a>
+                {/nav:loop}
+                {/nav}
+            </div>
+            <div class="account-sign-status">
+                <span id="welcome">欢迎来到<a href="{$site_url}">{$site_mini_name}</a>！</span>
+                <span id="user_status" class="user-status">请<a href="{$login_url}" class="a-login">登陆</a>或<a href="{$reg_url}" class="a-reg">免费注册</a></span>
+            </div>
+            <div class="top-cart">
+                <a class="cart" href="{$shop_cart_url}"><i class="glyphicon glyphicon-shopping-cart"></i>我的购物车（<span class="cart-amount" name="cart_amount">0</span>）</a>
+            </div>
+        </div>
+    </div>
+    <div class="header-line">
+        <div class="wrapper">
+            <div class="logo"><a href="{$site_url}"><img src="{$config(site_logo)}" alt="{$site_name}" title="{$site_name}"></a></div>
+            <div class="main-nav" id="main_nav">
+                {nav type="1" parent_id="0"}
+                <ul class="main">
+                {nav:loop}
+                <li class="n1" url="[nav:url]"><a class="n1" href="[nav:url]" target="[nav:target]">[nav:name]</a>
+                    {if:OW.int("[nav:children]")>0}
+                        {nav2 parent_id="[nav:nav_id]"}
+                        <div class="subnav">
+                        <ul>
+                        {nav2:loop}
+                        <li class="n2"><a class="n2" href="[nav2:url]" target="[nav2:target]">[nav2:name]</a></li>
+                        {/nav2:loop}
+                        </ul>
+                        </div>
+                        {/nav2}
+                    {/if}
+                </li>
+                {/nav:loop}
+                </ul>
+                {/nav}
+            </div>
+            <div class="search">
+                <div class="search-form">
+                    <div class="search-text"><input type="text" class="text-search" name="keywords" value="{$search_keyword}" placeholder="搜索" /></div>
+                    <button type="button" class="btn-search" name="btn_search" onclick="OW.search.run(1)">搜索</button>
+                </div>
+                <div class="search-keywords" name="search_keywords">{$search_goods_keywords}</div>
+            </div>
+        </div>
+    </div>
+</div>

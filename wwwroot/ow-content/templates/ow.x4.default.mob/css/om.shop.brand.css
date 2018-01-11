@@ -1,0 +1,52 @@
+
+/**品牌页**/
+.ow-brand{ min-height:600px;}
+.ow-brand-center{ padding:0px 0px 50px 0px;}
+.ow-brand-center .header{ border-top:1px solid #ddd; font-size:18px; font-weight:normal; margin:30px 10px 10px 10px; padding:0px 0px 10px 0px; position:relative;}
+.ow-brand-center .header b{ background:#f4f4f4; display:inline-block; margin:0px auto 0px -50px; padding:5px 0px; position:absolute; top:-20px; left:50%; text-align:center; width:100px;}
+.ow-brand-center .section{ padding:0px 0px 50px 0px;}
+.ow-brand-center .section h2{ font-size:16px; line-height:24px; padding:10px; }
+.ow-brand-center .section h2 a{}
+.ow-brand-center .section h2 em{ font-size:12px; font-style:normal; font-weight:normal; padding-left:10px; }
+
+ul.ow-brand-list{ padding:5px 10px; zoom:1; overflow:auto;}
+ul.ow-brand-list li{ float:left; width:25%; }
+ul.ow-brand-list li .logo{ border-bottom:1px solid #eee; height:40px; overflow:hidden;}
+ul.ow-brand-list li .logo img{}
+ul.ow-brand-list li h3.name{ font-weight:normal; height:24px; line-height:24px; overflow:hidden; padding-top:5px;}
+ul.ow-brand-list li a{ background:#fff; border:1px solid #e2e2e2; display:block; font-size:12px; margin-right:-1px; margin-bottom:-1px; padding:9px; text-align:center;}
+ul.ow-brand-list li a,
+ul.ow-brand-list li a:visited{ color:#666;}
+ul.ow-brand-list li a:hover{  border-color:#c2c2c2; color:#ff6700; position:relative; text-decoration:none; }
+
+.ow-brand-category{}
+.ow-brand-category .cate-section{ padding:5px 0px;}
+.ow-brand-category .ow-brand-goods{ background:#fff;}
+
+.ow-brand-goods{ background:#fff;}
+.ow-brand-goods .pager{ margin:0px 0px; padding:20px 0px 50px 0px; text-align:center;}
+.ow-brand-goods ul{ border-bottom:1px solid #eee;}
+
+
+.ow-brand-detail .header{ border-top:1px solid #ddd; font-size:18px; font-weight:normal; margin:30px 10px 20px 10px; padding:0px 0px 10px 0px; position:relative;}
+.ow-brand-detail .header b{ background:#f4f4f4; display:inline-block; margin:0px auto 0px -75px; padding:5px 0px; position:absolute; top:-20px; left:50%; text-align:center; width:150px;}
+
+.ow-brand-detail ul{ border-bottom:1px solid #eee;}
+.ow-brand-detail .pager{ padding:20px 0px; text-align:center;}
+
+.ow-brand-header{ background:#fcfcfc; border-bottom:1px solid #eee; padding:10px;  zoom:1; overflow:auto;}
+.ow-brand-header .title{ font-size:24px; font-weight:normal; margin:0px 0px; padding:15px 0px 0px 0px;}
+.ow-brand-header .brand-logo{ float:left; margin:15px 10px 10px 0px;}
+.ow-brand-header .brand-logo img{ height:74px; width:120px;}
+.ow-brand-header .brand-content{ font-size:14px; padding:8px 0px 10px 0px;}
+.ow-brand-header .brand-content a,
+.ow-brand-header .brand-content a:visited{ color:#136ec2;}
+.ow-brand-header .brand-content a:hover{ text-decoration:underline;}
+
+
+@media (min-width:360px) {
+	ul.ow-brand-list li .logo{ height:64px;}
+}
+@media (min-width:480px) {
+	ul.ow-brand-list li .logo{ height:84px;}
+}

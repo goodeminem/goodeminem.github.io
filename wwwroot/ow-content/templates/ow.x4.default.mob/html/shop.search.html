@@ -1,0 +1,96 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="apple-mobile-web-app-title" content="{$site_name}" />
+    <meta name="generator" content="openwbs {$version}" />
+    <meta name="author" content="openwbs team" />
+    <meta name="copyright" content="2008-2020 OpenWBS Inc." />
+    <!--#include file="include.css.html"-->
+</head>
+<body>
+<!--头部-->
+<header class="ow-header">
+    <a href="javascript:OW.goBack();" class="goback"></a>
+    <div class="title">{$search:keyword}</div>
+    <!--#include file="include.top.nav.html"-->
+</header>
+
+
+<section class="mbody">
+    <h1 class="ow-search-header">"{$search:keyword}" 搜索结果</h1>
+    <div class="ow-shop-cate-goods" id="search_result">
+        {goods top="2000" keyword="{$search:keyword}"}
+        <div class="section">
+            <ul class="ow-goods-horizlist">
+                {goods:loop}
+                <li>
+                    <a href="[goods:link]">
+                    <div class="thumb"><img src="[goods:thumbnail]" alt="[goods:title]" /></div>
+                    <div class="info">
+                        <h3 class="title">[goods:title]</h3>
+                        <div class="subtitle">[goods:summary]</div>
+                        <div class="price">{if:OW.int("[goods:point_set]")=1}<span class="point"><b>[goods:point_pay_amount]</b><em>积分</em><i>+</i></span>{/if}<span class="money"><em>{$moneysb}</em><b><%=OW.parsePrice("[goods:price]")%></b></span></div>
+                    </div>
+                    </a>
+                </li>
+                {/goods:loop}
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="pager">[goods:pages pagesize="20" pagetpl="{prev}{current}{next}"]</div>
+        </div>
+        {/goods}
+    </div>
+</section>
+<!--底部-->
+<!--#include file="include.footer.html"-->
+
+<script type="text/javascript">
+$(window).ready(function(){
+	var keyword = "{$search:keyword}";
+	if(!OW.isNull(keyword)){
+		$("#search_result .info").each(function(){
+			var text = $(this).html();
+			if(text.indexOf(keyword)>-1){
+				text = OW.reps(text,keyword,'<font class="keywords">'+keyword+'</font>');
+			};
+			$(this).html(text);
+		});
+	};
+	//积分价格
+	$(".price").each(function(){
+		var price = OW.parseMoney($(this).find(".money > b").html());
+		if(!price>0){
+			$(this).find(".money").hide();
+			$(this).find(".point > i").hide();
+		};
+	});
+});
+</script>
+<% if OS.isJWeixinCanUse then %>
+<%=OS.getWeixinTicket%>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript">
+wx.config({
+    debug:false,appId:'<%=OS.weixinAppid%>',timestamp:'<%=OS.weixinTimestamp%>',nonceStr:'<%=OS.weixinNonceStr%>',signature:'<%=OS.weixinSignature%>',jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareQZone']
+});
+wx.ready(function(){
+	var wxTitle = '{$title}',
+	wxDesc      = '{$description}'
+	wxLink      = OW.currentURL(),
+	wxImgUrl    = '<%=OW.validImageUrl("{$config(share_default_img)}")%>';
+	wx.onMenuShareTimeline({title:wxTitle,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareAppMessage({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareQQ({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareQZone({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+});
+</script>
+<% end if %>
+</body>
+</html>

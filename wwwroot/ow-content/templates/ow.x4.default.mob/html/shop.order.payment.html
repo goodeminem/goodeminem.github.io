@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="apple-mobile-web-app-title" content="{$site_name}" />
+    <meta name="generator" content="openwbs {$version}" />
+    <meta name="author" content="openwbs team" />
+    <meta name="copyright" content="2008-2020 OpenWBS Inc." />
+    <!--#include file="include.css.html"-->
+    <link rel="stylesheet" href="../css/om.shop.cart.css" />
+</head>
+<body>
+<!--头部-->
+<header class="ow-header">
+    <div class="title">选择支付方式</div>
+    <!--#include file="include.top.nav.html"-->
+</header>
+
+
+<section class="mbody">
+    <div class="ow-order">
+        <div class="section">
+            <div class="ow-payment" id="payment">
+            {$order:payment_html}
+            </div>
+        </div>
+        <div class="footer">
+            <div class="header">订单信息</div>
+            <div class="section">
+                <div class="price-line">支付手续费：<span class="money"><em>{$moneysb}</em><b name="cost_pay">{$order:cost_pay}</b></span></div>
+                <div class="price-line">订单总金额：<span class="money"><em>{$moneysb}</em><b name="total_amount">{$order:total_amount}</b></span></div>
+                {if:OW.cbool("{$order:is_pay_bookfrontmoney}")}
+                <div class="price-line">应付预付款：<span class="money"><em>{$moneysb}</em><b name="book_front_money">{$order:trade_money}</b></span></div>
+                {/if}
+                {if:OW.cbool("{$order:is_pay_bookfinalmoney}")}
+                <div class="price-line">应付尾款：<span class="money"><em>{$moneysb}</em><b name="book_final_money">{$order:trade_money}</b></span></div>
+                {/if}
+            </div>
+            <div class="buttons">
+            <button type="button" class="btn btn-primary btn-large" name="btn_submit">确定提交</button>
+            </div>
+        </div>
+    </div>
+</section>
+<!--底部-->
+<!--#include file="include.footer.html"-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//导航不浮动
+	navFixing();
+	//初始化
+	OW.shop.orderPayment({
+		orderId:'{$order:order_id}',
+		isBook:'{$order:is_book}',
+		costPay:'{$order:cost_pay}',
+		totalAmount:'{$order:total_amount}',
+		bookFinalMoney:'{$order:trade_money}',
+		$payment:$("#payment"),
+		$costPay:$("b[name='cost_pay']"),
+		$totalAmount:$("b[name='total_amount']"),
+		$bookFinalMoney:$("b[name='book_final_money']"),
+		$btn:$("button[name='btn_submit']")
+	});
+	if($("#payment").find("input[name='payment']").length==1){
+		$("#payment").find("input[name='payment']").click();
+		$("button[name='btn_submit']").click();
+	};
+});
+</script>
+</body>
+</html>

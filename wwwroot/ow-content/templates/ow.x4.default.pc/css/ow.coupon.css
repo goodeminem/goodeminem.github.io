@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* 
+* Author:CK
+*/
+ 
+.shop-coupon-section{ min-height:500px; margin:15px auto 15px auto; width:980px; zoom:1; overflow:auto; padding:0px;}
+.coupon-list{}
+.coupon-list .header{ border-bottom:1px solid #ddd; font-size:24px; font-weight:normal; margin:0px 0px 15px 0px; padding:15px 0px 10px 0px;}
+ 
+.coupon-item{ float:left; margin:0px 20px 20px 0px; padding:0px; width:480px;}
+.coupon-item-r{ margin-right:0px;}
+.coupon-item a.link{ background:#fff; border:2px dashed #ddd; display:block; padding:5px;}
+.coupon-item a.link,
+.coupon-item a.link:visited{}
+.coupon-item a.link:hover{ border-color:#888; text-decoration:none;}
+
+.coupon-item dl{ background:#fff; zoom:1; overflow:auto; }
+.coupon-item dl dt{ background-color:#cb3e3e; border-bottom:1px solid #9a0707; color:#fff; height:110px; position:relative; }
+.coupon-item dl dt .coupon-money{ padding:20px 0px 0px 10px;}
+.coupon-item dl dt .coupon-money .moneysb{ font-style:normal; font-size:26px; font-weight:bold;}
+.coupon-item dl dt .coupon-money .money{ font-size:60px; font-weight:bold; height:60px; line-height:60px;}
+.coupon-item dl dt .coupon-money .coupon-name{ font-size:26px; padding-left:10px;}
+.coupon-item dl dt .point{ background-color:#a91e1e; font-size:14px; padding:0px 0px; position:absolute; bottom:0px; width:100%;}
+.coupon-item dl dt .point span{ padding-left:15px;}
+
+.coupon-item dl dd{ background-color:#f6f6f6; border:1px solid #ccc; border-top:none; height:80px; padding:10px 0px 10px 10px; position:relative;}
+.coupon-item dl dd.detail{ height:auto;}
+.coupon-item dl dd .span-dt{ color:#888; display:inline-block; float:left; width:60px;}
+.coupon-item dl dd .span-dd{ color:#333; padding-left:60px;}
+.coupon-item dl dd .get-time{ padding:2px 0px;}
+.coupon-item dl dd .use-time{ padding:2px 0px;}
+.coupon-item dl dd .use-min-money{ padding:2px 0px;}
+.coupon-item dl dd .use-goods-rule{ padding:2px 0px;}
+.coupon-item dl dd .use-goods-rule ul.coupon-cate-list{}
+.coupon-item dl dd .use-goods-rule ul.coupon-cate-list li{}
+.coupon-item dl dd .use-goods-rule ul.coupon-goods-list{}
+.coupon-item dl dd .use-goods-rule ul.coupon-goods-list li{}
+
+.coupon-item .coupon-button-section{ position:absolute; right:0px; top:0px;}
+.coupon-item .btn-get-coupon{ background-color:#9d0f0f; border-left:2px dashed #7b0000; color:#fff; display:inline-block; font-size:24px; height:88px; line-height:32px; width:48px; padding:22px 30px 0px 30px; text-align:center;}
+.coupon-item .btn-get-coupon:hover{ background-color:#830404; border-left:2px dashed #7b0000; text-decoration:none; }
+
+
+.coupon-detail{ background-color:#fff; border:1px solid #ddd; min-height:500px; padding:30px 50px; zoom:1; overflow:auto;}
+.coupon-detail h1.coupon-name{ border-bottom:1px solid #ddd; font-size:14px; margin:0px 0px 10px 0px; padding:0px 0px 10px 0px; }
+.coupon-detail .coupon-desc{ font-size:14px;}
+.coupon-detail .coupon-desc .header{ font-weight:bold;}
+.coupon-detail .coupon-desc .section{}
+
+

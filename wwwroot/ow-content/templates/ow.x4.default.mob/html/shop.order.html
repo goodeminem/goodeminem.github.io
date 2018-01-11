@@ -1,0 +1,84 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="apple-mobile-web-app-title" content="{$site_name}" />
+    <meta name="generator" content="openwbs {$version}" />
+    <meta name="author" content="openwbs team" />
+    <meta name="copyright" content="2008-2020 OpenWBS Inc." />
+    <!--#include file="include.css.html"-->
+    <link rel="stylesheet" href="../css/om.shop.cart.css" />
+</head>
+<body>
+<!--头部-->
+<header class="ow-header">
+    <div class="title">确认订单信息</div>
+    <!--#include file="include.top.nav.html"-->
+</header>
+
+
+<section class="mbody">
+    <div class="ow-order">
+        <div class="section">
+            <div id="order_goods_info">
+                {$order:order_form_html}
+            </div>
+            <div id="invoice">
+                {if:OW.cbool("{$config(is_invoice_open)}")}
+                    {$order:order_invoice_html}
+                {/if}
+            </div>
+            <div id="coupon">
+                {$order:order_coupon_html}
+            </div>
+        </div>
+        <div class="footer">
+            <div class="header">结算信息</div>
+            <div class="section">
+                {if:OW.int("{$order:point_pay_amount}")>0}
+                <div class="price-line price-point">需要消费：<span class="money"><b name="point_pay_amount">{$order:point_pay_amount}</b><%=OS.lang(200)%></span></div>
+                {/if}
+                <div class="price-line">商品总金额：<span class="money"><em>{$moneysb}</em><b name="cost_item" money="{$order:cost_item}">{$order:cost_item}</b></span></div>
+                <div class="price-line price-coupon">优惠券抵扣：<span class="money">-<em>{$moneysb}</em><b name="cost_coupon" money="0">0.00</b></span></div>
+                <div class="price-line price-freight">运费：<span class="money"><em>{$moneysb}</em><b name="cost_freight" money="{$order:cost_freight}">{$order:cost_freight}</b></span></div>
+                {if:OW.cbool("{$config(is_invoice_open)}")}
+                <div class="price-line price-invoice" name="cost_invoice_grid" style="display:none;">发票税金：<span class="money"><em>{$moneysb}</em><b name="cost_invoice" money="0">0</b></span></div>
+                {/if}
+            </div>
+        </div>
+    </div>
+</section>
+<div class="ow-buy-section">
+    <div class="action">
+        <div class="order-price">
+            <div class="order-price-amount">合计：<span class="money"><em>{$moneysb}</em><b name="total_amount">{$order:total_amount}</b></span></div>{if:OW.int("{$order:is_book}")=1}<div class="order-price-book">预付：<span class="money"><em>{$moneysb}</em><b name="book_front_money">{$order:book_front_money}</b></span></div>{/if}
+        </div>
+        <button type="button" class="btn-submit" name="btn_submit">提交订单</button>
+    </div>
+</div>
+
+<!--底部-->
+<!--#include file="include.footer.html"-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	navFixing();
+	OW.shop.orderInit({
+		order:$("#order_goods_info"),
+		costItem:$("b[name='cost_item']"),
+		costInvoice:$("b[name='cost_invoice']"),
+		costCoupon:$("b[name='cost_coupon']"),
+		costFreight:$("b[name='cost_freight']"),
+		totalAmount:$("b[name='total_amount']"),
+		costInvoiceGrid:$("div[name='cost_invoice_grid']"),
+		btn:$("button[name='btn_submit']")
+	});
+});
+</script>
+</body>
+</html>

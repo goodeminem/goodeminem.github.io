@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>订单({$order_id})支付尾款</title>
+</head>
+<body>
+<table border="0" cellpadding="5" cellspacing="0" style="color:#222; font-size:14px; line-height:200%;">
+<tr><td><strong>亲爱的{$shop_name}用户，您好：</strong></td></tr>
+<tr><td>您订购的商品已到货，请在{$book_final_pay_time}前支付尾款，<b><a href="{$order_detail_url}" target="_blank">立即前往支付>></a></b>！</td></tr>
+<tr style="background:#fff;"><td>
+<div><span style="padding-right:10px;">订单编号：<strong>{$order_id}</strong></span><span>下单时间：</span>{$date_added}</div>
+<div><span style="padding-right:10px;">商品总金额：<strong>{$moneysb}{$cost_item}</strong></span></div>
+<div><span style="padding-right:10px;">订单总金额：<strong>{$moneysb}{$total_amount}</strong></span></div>
+<div><span style="padding-right:10px;">预付款：<strong>{$moneysb}{$book_front_money}</strong></span></div>
+<div><span style="padding-right:10px;">已支付：<strong>{$moneysb}{$money_paid}</strong></span></div>
+<div><span style="padding-right:10px;">待支付：<strong>{$moneysb}{$book_final_money}</strong></span></div>
+</td></tr>
+<tr><td>
+<div><strong>商品信息</strong></div>
+<div>{$order_goods}</div>
+</td></tr>
+</table>
+<div><a href="{$order_detail_url}" target="_blank">查看订单详细</a></div>
+</body>
+</html>

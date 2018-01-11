@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* 
+* Author: Lin xiao dong
+* http://www.openwbs.com
+*/
+
+body{ background-color:#f4f4f4; }
+.ow-case-left-section{ float:left; padding:15px 0px; width:840px; }
+.ow-case-right-section{ float:left; padding:15px 0px 15px 15px; width:345px; }
+
+.ow-case-header h1.title{ font-family:幼圆; font-size:32px; font-weight:normal; margin:0px 0px; text-align:center;}
+.ow-case-header h1.title span{ border-bottom:2px solid #ddd; display:inline-block; padding:0px 10px 0px 10px;}
+.ow-case-header ul{ padding:20px 0px; zoom:1; overflow:auto; text-align:center;}
+.ow-case-header ul li{ display:inline; padding:0px 0px;}
+.ow-case-header ul li a{ background-color:#fff; border:1px solid #e6e6e6; display:inline-block; font-size:16px; height:24px; line-height:24px; margin-left:-1px; padding:6px 26px;}
+.ow-case-header ul li a:hover{ text-decoration:none;}
+.ow-case-header ul li.current a{ background-color:#2993df; border-color:#2993df; color:#fff; text-decoration:none;}
+
+/**新闻**/
+.ow-case-list{}
+.ow-case-list .section{ padding:20px 0px 0px 2px; zoom:1; overflow:auto;}
+.ow-case-list .section ul{ padding:0px;}
+.ow-case-list .section ul li{ background-color:#fff; float:left; height:330px; width:280px; margin-bottom:25px; margin-right:25px; position:relative; -webkit-box-shadow:0px 0px 2px 1px rgba(0,0,0,0.1); -moz-box-shadow:0px 0px 2px 1px rgba(0,0,0,0.1); box-shadow:0px 0px 2px 1px rgba(0,0,0,0.1);}
+.ow-case-list .section ul li.li4,
+.ow-case-list .section ul li.li8,
+.ow-case-list .section ul li.li12,
+.ow-case-list .section ul li.li16,
+.ow-case-list .section ul li.li20{ margin-right:0px;}
+.ow-case-list .section ul li .thumb a{ display:block; height:172px; width:280px; text-align:center; overflow:hidden;}
+.ow-case-list .section ul li .thumb a img{ height:172px; width:280px; }
+.ow-case-list .section ul li .title{ font-size:16px; font-weight:normal; max-height:56px; line-height:28px; overflow:hidden; padding:8px 12px 0px 12px;}
+.ow-case-list .section ul li .title a,
+.ow-case-list .section ul li .title a:visited{ color:#222;}
+.ow-case-list .section ul li .title a:hover{ text-decoration:none;}
+.ow-case-list .section ul li .summary{ color:#888; font-size:14px; max-height:96px; line-height:24px; margin:5px 0px 0px 0px; overflow:hidden; padding:0px 12px;}
+.ow-case-list .section ul li .datetime{ color:#888; font-size:12px; margin-top:5px; padding:0px 12px;}
+.ow-case-list .section ul li:hover a,
+.ow-case-list .section ul li:hover a:visited{ color:#e60000;}
+.ow-case-list .section ul li:hover .summary{ color:#444;}
+.ow-case-list .section ul li:hover img{ transform:scale(1.06,1.06); transition-duration:500ms; transition-timing-function:ease-out; }
+.ow-case-list .pager{ margin:30px 0px; padding:50px 0px; text-align:center;}
+
+/*分类*/
+.ow-case-cates{ border:1px solid #e6e6e6;}
+.ow-case-cates ul{ padding:10px 15px;}
+.ow-case-cates ul li{}
+.ow-case-cates ul li a{ border-bottom:1px solid #eee; display:block; font-size:18px; height:24px; line-height:24px; padding:10px 5px;}
+.ow-case-cates ul li a:hover{ text-decoration:none;}
+
+/*tags*/
+.ow-case-tags{ background-color:#fff; border:1px solid #e6e6e6; margin-top:15px; padding:15px;}
+.ow-case-tags h2.title{ font-size:16px; }
+.ow-case-tags .section{ padding:5px 0px;}
+.ow-case-tags .section a{ display:inline-block; font-size:14px; height:24px; line-height:24px; margin:0px 10px 5px 0px;}
+.ow-case-tags .section a:hover{ text-decoration:none;}
+
+/*slist*/
+.ow-case-slist{ background-color:#fff; border:1px solid #e6e6e6; margin-top:15px; padding:15px;}
+.ow-case-slist .title{ font-size:16px; }
+.ow-case-slist li{ border-bottom:1px dotted #eee; font-size:14px; padding:10px 0px 15px 0px; }
+.ow-case-slist img{ float:left; height:60px; margin:5px 10px 0px 0px; width:94px;}
+.ow-case-slist h3{ font-size:14px; height:24px; line-height:24px; overflow:hidden;}
+.ow-case-slist li .summary{ color:#666; font-size:12px; height:40px; overflow:hidden; padding:0px 2px 0px 0px;}
+
+/**内容详细**/
+.ow-content-container{ min-height:600px; padding:0px 20px 0px 0px;}
+.ow-content-container h1.title{ font-size:24px; font-weight:normal; margin:0px 0px 0px 0px; padding:0px 0px 10px 0px; }
+.ow-content-container .byline{ color:#aaa; line-height:12px; font-size:12px; margin:0px 0px 0px 0px; padding:0px 0px 0px 0px;}
+.ow-content-container .byline span{ border-right:1px solid #bbb; display:inline-block; height:12px; line-height:12px; margin:0px 8px 0px 0px; padding:0px 8px 0px 0px;}
+.ow-content-container .byline span.views{ border-right:none; }
+.ow-content-container .byline a,.ow-content-container .byline a:visited { color:#aaa;}
+.ow-content-container .byline a:hover{ color:#333; text-decoration:none;}
+.ow-content-container .content{ font-size:16px; line-height:200%; margin:0px 0px 0px 0px; padding:20px 0px 20px 0px; word-break:break-all; word-wrap:break-word;}
+.ow-content-container .content img{}
+.ow-content-container .tags { font-size:14px; padding:5px 0px;}
+.ow-content-container .tags a{ margin:0px 5px 0px 0px;}
+.ow-content-container .pager { margin:0px 0px 0px 0px; padding:30px 0px 30px 0px; text-align:center;}
+.ow-content-container .prev-next{ border-top:1px dotted #ddd; font-size:14px; margin:20px 0px 10px 0px; padding:10px 0px;}
+.ow-content-container .prev-next .prev{ height:24px; padding:4px 0px;}
+.ow-content-container .prev-next .next{ height:24px; padding:4px 0px;}
+
+/*相关内容*/
+.related-content{ border-top:1px dotted #ddd; padding:0px 0px 20px 0px;}
+.related-content .header{ font-size:14px; font-weight:bold; padding:10px 0px 5px 0px;}
+.related-content ul{}
+.related-content ul li{ font-size:14px; }
+.related-content ul a{ background:url("../images/3px.png") 0px 16px no-repeat; border-bottom:1px solid #eee; display:inline-block; line-height:24px; padding:4px 0px 4px 10px; }

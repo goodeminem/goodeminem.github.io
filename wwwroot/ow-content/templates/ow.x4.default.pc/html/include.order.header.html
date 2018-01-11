@@ -1,0 +1,18 @@
+﻿<div id="header" class="header-order">
+    <div class="toper">
+        <div class="wrapper">
+            <div class="top-nav">
+                {nav type="0" parent_id="0"}
+                {nav:loop}
+                <a class="link" href="[nav:url]" target="[nav:target]">[nav:name]</a>
+                {/nav:loop}
+                {/nav}
+            </div>
+            <div class="account-sign-status">
+                <span id="welcome">欢迎来到<a href="{$site_url}">{$site_mini_name}</a>！</span>
+                <span id="user_status" class="user-status">请<a href="{$login_url}" class="a-login">登陆</a>或<a href="{$reg_url}" class="a-reg">免费注册</a></span>
+                <a class="cart" href="{$shop_cart_url}">我的购物车(<span class="cart-amount" name="cart_amount">0</span>)</a>
+            </div>
+        </div>
+    </div>
+</div>

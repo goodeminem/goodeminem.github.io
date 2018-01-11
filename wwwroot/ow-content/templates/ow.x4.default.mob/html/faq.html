@@ -1,0 +1,105 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="apple-mobile-web-app-title" content="{$site_name}" />
+    <meta name="generator" content="openwbs {$version}" />
+    <meta name="author" content="openwbs team" />
+    <meta name="copyright" content="2008-2020 OpenWBS Inc." />
+    <!--#include file="include.css.html"-->
+</head>
+<body>
+<!--头部-->
+<header class="ow-header">
+    <a href="{$site_url}" class="goback"></a>
+    <div class="title">{$cate:name}</div>
+    <!--#include file="include.top.nav.html"-->
+</header>
+
+<section class="mbody">
+    <div class="ow-faq">
+        <div class="header ow-cate-header-slither">
+            {cate parent_id="{$cate:cate_id}"}
+            <ul name="header_slither">
+                <li class="li0 current"><a href="{$site_hurl}<%=OW.DB.getFieldValueBySQL("SELECT [urlpath] FROM ow_category WHERE cate_id={$cate:cate_id} AND "& OW.DB.auxSQL &"")%>/">全部</a></li>
+                {cate:loop}<li class="li[cate:i]"><a href="[cate:link]">[cate:name]</a></li>{/cate:loop}
+            </ul>
+            {/cate}
+        </div>
+        <div class="section">
+            <ul class="ow-faq-list">
+                {content top="200" cate_id="{$cate:cate_id}" model="faq" table_join="INNER JOIN db_content_data on a.cid=db_content_data.cid"}
+                    {content:loop}
+                    <li>
+                        <h3 class="title"><a href="[content:link]" name="question"><i class="ques"></i>[content:ctitle]<i class="expand"></i></a></h3>
+                        <div class="info"><i class="answer"></i><%=OW.editorContentClientDecode("[content:mob_content]")%></div>
+                    </li>
+                    {/content:loop}
+                {/content}
+            </ul>
+        </div>
+		<script type="text/javascript">
+        $(document).ready(function(){
+            $("a[name='question']").toggle(
+                function(){
+                    $(this).parent().parent().addClass("shrink");
+                    $(this).parent().next(".info").hide(100);
+                },
+                function(){
+					$(this).parent().parent().removeClass("shrink");
+                    $(this).parent().next(".info").show(100);
+                }
+            );
+        });
+        </script>
+</div>
+</section>
+
+<!--底部-->
+<!--#include file="include.footer.html"-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	OW.mobile.menu();
+	$("ul[name='header_slither']").each(function(){
+		var ulWidth = 0,parDivWidth = OW.int($(this).parent().css("width"));
+		$(this).find("li").each(function(){
+			ulWidth = ulWidth + OW.int($(this).width()) + OW.int($(this).css("padding-left")) + OW.int($(this).css("padding-right"));
+		});
+		if(ulWidth==0){
+			$(this).hide();
+		}else{
+			ulWidth = ulWidth + 10;
+		};
+		if(ulWidth<=parDivWidth){ulWidth=parDivWidth+10;};
+		$(this).width(ulWidth);
+	});
+	if($("ul[name='header_slither']").find("li").length==1){$(".ow-cate-header-slither").hide();};
+});
+</script>
+<% if OS.isJWeixinCanUse then %>
+<%=OS.getWeixinTicket%>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript">
+wx.config({
+    debug:false,appId:'<%=OS.weixinAppid%>',timestamp:'<%=OS.weixinTimestamp%>',nonceStr:'<%=OS.weixinNonceStr%>',signature:'<%=OS.weixinSignature%>',jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareQZone']
+});
+wx.ready(function(){
+	var wxTitle = '{$title}',
+	wxDesc      = '{$description}'
+	wxLink      = OW.currentURL(),
+	wxImgUrl    = '<%=OW.validImageUrl("{$config(share_default_img)}")%>';
+	wx.onMenuShareTimeline({title:wxTitle,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareAppMessage({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareQQ({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareQZone({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+});
+</script>
+<% end if %>
+</body>
+</html>

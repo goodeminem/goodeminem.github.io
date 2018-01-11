@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* 
+* Author: Lin xiao dong
+* http://www.openwbs.com
+*/
+
+body{ background-color:#fff; }
+
+.ow-download-cates { background-color:#fafafa; border-bottom:1px solid #f4f4f4; min-height:50px;}
+.ow-download-cates ul{}
+.ow-download-cates ul li.n1{ display:inline-block; float:left; height:50px; line-height:50px; position:relative;}
+.ow-download-cates ul li.n1 a{ display:block; font-size:16px; height:50px; line-height:50px; padding:0px 15px;}
+.ow-download-cates ul li.n1 a:hover{ background-color:#eee; text-decoration:none;}
+.ow-download-cates ul li.n1.current a.n1{ background-color:#2993df; border-color:#2993df; color:#fff; text-decoration:none;}
+.ow-download-cates ul li.n1 .caret{ margin-left:8px;}
+.ow-download-cates ul li.n1 .subcates{
+	background:#fff; display:none; position:absolute; top:50px; left:0px; width:200px;
+	-webkit-box-shadow:rgba(0,0,0,0.5) 0px 2px 5px; -moz-box-shadow:rgba(0,0,0,0.5) 0px 2px 5px; box-shadow:rgba(0,0,0,0.5) 0px 2px 5px; z-index:100;
+}
+.ow-download-cates ul li.n1 .subcates ul{ padding:10px 0px; zoom:1; overflow:auto; }
+.ow-download-cates ul li.n1 .subcates ul li{ display:block;}
+.ow-download-cates ul li.n1 .subcates ul li a{ display:block; float:none; height:44px; line-height:44px; }
+
+.ow-download-cates h1.title{ font-family:幼圆; font-size:32px; font-weight:normal; margin:0px 0px; text-align:center;}
+
+/**新闻**/
+.ow-download{}
+.ow-download .section{ padding:20px 0px 0px 2px; zoom:1; overflow:auto;}
+.ow-download .section .pager{ margin:30px 0px; padding:50px 0px; text-align:center;}
+
+ul.ow-download-list{}
+ul.ow-download-list li{ border:1px solid #eee; padding:20px 20px;}
+ul.ow-download-list li h3{ font-size:16px; font-weight:normal; height:24px; line-height:24px;}
+ul.ow-download-list li h3 a,
+ul.ow-download-list li h3 a:visited{ color:#222;}
+ul.ow-download-list li h3 a:hover{ color:#fc0000; text-decoration:none;}
+ul.ow-download-list li .byline{ color:#888; font-size:12px; padding:5px 0px;}
+ul.ow-download-list li .byline span{ padding-right:20px;}
+ul.ow-download-list li .summary{ color:#888; font-size:14px; line-height:150%;}
+
+/**内容详细**/
+.download-content{ min-height:600px;}
+.download-content h1.title{ font-size:24px; font-weight:normal; margin:0px 0px 0px 0px; padding:10px 0px 5px 0px; }
+.download-content .byline{ color:#aaa; line-height:12px; font-size:12px; margin:0px 0px 0px 0px; padding:0px 0px 0px 0px;}
+.download-content .byline span{ border-right:1px solid #bbb; display:inline-block; height:12px; line-height:12px; margin:0px 8px 0px 0px; padding:0px 8px 0px 0px;}
+.download-content .byline span.views{ border-right:none; }
+.download-content .byline a,
+.download-content .byline a:visited { color:#aaa;}
+.download-content .byline a:hover{ color:#333; text-decoration:none;}
+.download-content .content{ font-size:16px; line-height:200%; margin:0px 0px 0px 0px; padding:20px 0px 20px 0px; word-break:break-all; word-wrap:break-word;}
+.download-content .content img{}
+.download-content .tags { font-size:14px; padding:5px 0px;}
+.download-content .tags a{ margin:0px 5px 0px 0px;}
+.download-content .pager { margin:0px 0px 0px 0px; padding:30px 0px 30px 0px; text-align:center;}
+.download-content .prev-next{ border-top:1px dotted #ddd; font-size:14px; margin:20px 0px 10px 0px; padding:10px 0px;}
+.download-content .prev-next .prev{ height:24px; padding:4px 0px;}
+.download-content .prev-next .next{ height:24px; padding:4px 0px;}
+
+/*下载*/
+.downloader{ border-bottom:1px solid #e6e6e6; padding:15px 0px 15px 0px;}
+.downloader h2{ font-size:14px; font-weight:normal; padding:10px 0px;}
+.downloader h2 span{ font-size:12px; margin:0px 0px 0px 10px;}
+
+/*相关内容*/
+.ow-related-content{ border-top:1px solid #ddd; padding:10px 0px 20px 0px;}
+.ow-related-content .header{ font-size:16px; font-weight:normal;}
+.ow-related-content ul{}
+.ow-related-content ul li{ border-bottom:1px dotted #eee; padding:5px 0px;}
+.ow-related-content ul li a{ background:url("../images/3px.png") 0px 5px no-repeat; line-height:24px; padding-left:10px;}
+
+
+
+
+
+
+
+
+

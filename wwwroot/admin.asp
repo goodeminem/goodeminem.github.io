@@ -1,0 +1,3 @@
+﻿<%
+response.Redirect("ow-admin/")
+%>

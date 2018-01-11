@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* 
+* Author: Lin xiao dong
+* http://www.openwbs.com
+*/
+.ow-form{ padding:20px 80px 50px 80px;}
+.ow-form h1{ border-bottom:1px solid #eee; font-size:22px; font-weight:normal; margin:10px 0px; padding:0px 0px 5px 0px;}
+.ow-form h2{ border-bottom:1px solid #eee; font-size:22px; font-weight:normal; margin:50px 0px 0px 0px; padding:0px 0px 5px 0px;}
+.ow-form-post{}
+
+/*自定义表单*/
+.ow-form-list {padding:5px 0px;}
+.form-data {background:#fafafa; border:1px dotted #ccc; margin:15px 0px 0px 0px; position:relative;}
+.form-data:before,
+.form-data:after { display:table; line-height:0; content:"";}
+.form-data:after { clear:both;}
+.form-data .heading {border-bottom:1px dotted #ddd; color:#aaa; height:20px; line-height:20px;}
+.form-data .heading .data-id {font-size:11px; padding:5px 5px;}
+.form-data .heading .datetime {float:right; font-size:11px; padding:0px 10px;}
+.form-data .avatar {float:left; padding:10px 10px 6px 10px; width:48px;}
+.form-data .avatar img {height:48px; width:48px;}
+.form-data .avatar h6 {margin:0px; padding:0px; width:48px; overflow:hidden;}
+.form-data-content {background:#fff; border-left:1px dotted #ddd; margin-left:68px;}
+.form-data-content:before,
+.form-data-content:after { display:table; line-height:0; content:""; }
+.form-data-content:after { clear:both;}
+.form-data table {width:100%;}
+.form-data .row {border-bottom:1px dotted #ddd; padding:2px 0px 2px 0px;}
+.form-data .row:last-child {border-bottom:none;}
+.form-data td.col-name {float:left; font-size:12px; height:20px; line-height:20px; padding:3px 10px; text-align:left;}
+.form-data td.col-value {border-left:1px dotted #ddd; font-size:12px; padding:3px 10px; width:88%;}
+
+.form-data-reply {background-color:#ECF3FF; border:1px dotted #CDDEF8; color:#4B74B6; margin:0px 0px;}
+.form-data-reply .heading {border-bottom:none; padding:5px 0px 0px 0px;}
+.form-data-reply .heading .datetime {float:none; font-size:11px; padding:0px 10px;}
+.form-data-reply .form-data-content {background:#ECF3FF;}
+.form-data-reply .reply-content {min-height:50px; padding:5px 10px;}
+

@@ -1,0 +1,25 @@
+﻿
+body{ background-color:#fff; }
+.ow-left-section{ border-right:1px solid #eee; float:left; margin:0px 0px 20px 0px; padding:15px 0px; width:840px; }
+.ow-right-section{ float:left; padding:15px 0px 15px 15px; width:344px; }
+
+.ow-left-section .pager{ padding:30px 0px;}
+
+ul.ow-content-list{ }
+ul.ow-content-list li{ border-bottom:1px solid #eee; padding:20px 0px;}
+ul.ow-content-list li h3{ font-size:16px; font-weight:normal; height:24px; line-height:24px;}
+ul.ow-content-list li h3 a,
+ul.ow-content-list li h3 a:visited{ color:#222;}
+ul.ow-content-list li h3 a:hover{ color:#fc0000; text-decoration:none;}
+ul.ow-content-list li .byline{ color:#888; font-size:12px; padding:5px 0px;}
+ul.ow-content-list li .byline span{ padding-right:20px;}
+ul.ow-content-list li .summary{ color:#888; font-size:14px; line-height:150%;}
+
+
+/*标签云*/
+.ow-tags-cloud { float:left; width:208px;}
+.ow-tags-cloud .tags-cloud-wrap{ padding:0px 0px 0px 10px;}
+.ow-tags-cloud a{ display:inline-block; margin:0px 8px 0px 0px;}
+.ow-tags-cloud a,
+.ow-tags-cloud a:visited{ color:#666;}
+.ow-tags-cloud a:hover{ color:#fc0000; text-decoration:none; }

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>会员{$username}刚提交了一个订单({$order_id})</title>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" style="color:#222; font-size:14px; line-height:200%;">
+<tr><td>
+<div><span style="padding-right:10px;">下单会员：<strong>{$username} ({$nickname})</strong></span></div>
+<div><span style="padding-right:10px;">订单编号：<strong>{$order_id}</strong></span><span>下单时间：</span>{$date_added}</div>
+<div><span style="padding-right:10px;">商品总金额：<strong>{$moneysb}{$cost_item}</strong></span></div>
+<div><span style="padding-right:10px;">订单总金额：<strong>{$moneysb}{$total_amount}</strong></span></div>
+<div><span style="padding-right:10px;">是否预订：<strong>{$is_book}</strong></span></div>
+<div><span style="padding-right:10px;">预付款：<strong>{$book_front_money}</strong></span></div>
+<div><span style="padding-right:10px;">预订预计到货时间：<strong>{$book_arrival_time}</strong></span></div>
+</td></tr>
+<tr><td>
+<div><strong>商品信息</strong></div>
+<div>{$order_goods}</div>
+</td></tr>
+</table>
+</body>
+</html>

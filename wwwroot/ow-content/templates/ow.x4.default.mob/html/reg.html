@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{$title}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="apple-mobile-web-app-title" content="{$site_name}" />
+    <meta name="generator" content="openwbs {$version}" />
+    <meta name="author" content="openwbs team" />
+    <meta name="copyright" content="2008-2020 OpenWBS Inc." />
+    <!--#include file="include.css.html"-->
+    <link rel="stylesheet" href="../css/om.login.css" />
+</head>
+<body>
+<!--头部-->
+<header class="ow-header">
+    <a href="javascript:OW.goBack();" class="goback"></a>
+    <div class="title">注册成为会员</div>
+    <!--#include file="include.top.nav.html"-->
+</header>
+
+
+<section class="ow-logreg">
+    <div class="logreg-section">
+        <%=OS.regHtml%>
+        <div class="logreg-aux-section">
+            <dl>
+                <dt>有帐号的会员请直接登录</dt>
+                <dd><a class="btn btn-large" href="{$login_url}">会员登录</a></dd>
+            </dl>
+        </div>
+        <div class="login-apps" id="login_apps">
+            <div class="header"><span>快捷登录</span></div>
+            <div class="section">
+                <a class="app-login app-weixin" href="javascript:;" onClick="OW.member.wxLogin()" name="wxlogin">微信安全登录</a>
+                <a class="app-login app-qq" href="javascript:;" onClick="OW.member.qqLogin({appid:'{$config(qq_pc_appid)}'})" name="qqlogin">使用QQ账号登录</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--底部-->
+<!--#include file="include.footer.html"-->
+<script type="text/javascript">
+$(document).ready(function(){
+	navFixing();
+	if(!(OW.isWeixinAgent() && OW.int("{$config(is_weixin_mobile_open)}")==1)){
+		$("a[name='wxlogin']").remove();
+	};
+	if(OW.int("{$config(is_qq_pc_open)}")==0){
+		$("a[name='qqlogin']").remove();
+	};
+	if(OW.int($("#login_apps").find(".app-login").length)==0){
+		$("#login_apps").remove();
+	};
+});
+</script>
+<% if OS.isJWeixinCanUse then %>
+<%=OS.getWeixinTicket%>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript">
+wx.config({
+    debug:false,appId:'<%=OS.weixinAppid%>',timestamp:'<%=OS.weixinTimestamp%>',nonceStr:'<%=OS.weixinNonceStr%>',signature:'<%=OS.weixinSignature%>',jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareQZone']
+});
+wx.ready(function(){
+	var wxTitle = '{$title}',
+	wxDesc      = '{$description}'
+	wxLink      = OW.currentURL(),
+	wxImgUrl    = '<%=OW.validImageUrl("{$config(share_default_img)}")%>';
+	wx.onMenuShareTimeline({title:wxTitle,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareAppMessage({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareQQ({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareQZone({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+});
+</script>
+<% end if %>
+</body>
+</html>

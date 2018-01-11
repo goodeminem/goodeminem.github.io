@@ -1,0 +1,41 @@
+﻿
+/*常见问题faq*/
+.ow-faq{ margin:0px auto; width:1200px; padding:50px 0px 50px 0px;}
+.ow-faq .header ul{ border-bottom:1px solid #c60000; height:51px; padding-left:180px; z-index:999;}
+.ow-faq .header ul li{ float:left; height:51px; line-height:51px; margin-left:-1px; overflow:hidden; padding:0; position:relative;}
+.ow-faq .header ul li a{ background:#e6e6e6; border:1px solid #aaa; color:#333333; display:inline-block; font-size:18px; height:50px; line-height:50px; width:150px; text-align:center;}
+.ow-faq .header ul li a ,
+.ow-faq .header ul li a:visited{ text-decoration:none;}
+.ow-faq .header ul li a:hover{ background:#d6d6d6; color:#c60000; text-decoration:none;}
+.ow-faq .header ul li.current { height:52px; position:relative; z-index:1;}
+.ow-faq .header ul li.current a,
+.ow-faq .header ul li.current a:hover{ background:#fff; border-color:#c60000; border-top-width:2px; color:#333; }
+
+.ow-faq-list{ min-height:500px; padding:10px 0px 10px 0px;}
+.ow-faq-list .faq-item { padding:10px 0px;}
+.ow-faq-list .faq-item .title a{ background-color:#e5eaf1; display:block; font-size:16px;  height:32px; line-height:32px; padding:8px 10px 8px 15px;}
+.ow-faq-list .faq-item .title a,
+.ow-faq-list .faq-item .title a:visited{ color:#222;}
+.ow-faq-list .faq-item .title a:hover{ text-decoration:none;}
+.ow-faq-list .faq-item .title i.ques{ background:url("../images/faq-icons.png") 0px 0px no-repeat; display:inline-block; float:left; height:32px; margin:0px 10px 0px 0px; width:32px;}
+.ow-faq-list .faq-item .title i.expand{ background:url("../images/faq-icons.png") 0px -64px no-repeat; display:inline-block; float:right; height:32px; width:32px;}
+.ow-faq-list .faq-item .title a.current{ background-color:#3178cc; color:#fff;}
+.ow-faq-list .faq-item .title a.current i.ques{ background-position:0px -32px;}
+.ow-faq-list .faq-item .title a.current i.expand{ background-position:0px -96px;}
+.ow-faq-list .faq-item .section{ background:url("../images/faq-icon-answer.png") 15px 25px no-repeat; border:1px solid #ddd; border-top:0px; color:#686868; display:none; font-size:16px; padding:25px 20px 25px 57px;}
+
+
+/*详细*/
+.ow-faq-content-section{ background-color:#fff; border:1px solid #eee; margin:15px 0px; padding:20px;}
+.ow-faq-content-section h1.title{ font-size:26px; font-weight:normal; margin:0px 15px; padding:5px 0px 5px 0px; }
+.ow-faq-content-section .content{ background:#fafafa; border:1px dotted #e6e6e6;  font-size:14px; line-height:200%; margin:0px 15px; padding:10px 0px 10px 0px; word-break:break-all; word-wrap:break-word; padding:15px;}
+.ow-faq-content-section .content p{ padding:0px 0px 10px 0px;}
+.ow-faq-content-section .pager { margin:0px 20px; padding:10px 0px 20px 0px; text-align:center;}
+.ow-faq-content-section .tags { font-size:14px; margin:0px 15px; padding:5px 0px;}
+.ow-faq-content-section .tags a{ margin:0px 5px 0px 0px;}
+.ow-faq-content-section .tags a,
+.ow-faq-content-section .tags a:visited{ color:#888;}
+.ow-faq-content-section .tags a:hover{ color:#000; text-decoration:none;}
+.ow-faq-content-section .prev-next{ border-top:1px dotted #ddd; font-size:14px; margin:5px 15px 10px 15px; padding:10px 0px;}
+.ow-faq-content-section .prev-next .prev{ height:24px; padding:4px 0px;}
+.ow-faq-content-section .prev-next .next{ height:24px; padding:4px 0px;}

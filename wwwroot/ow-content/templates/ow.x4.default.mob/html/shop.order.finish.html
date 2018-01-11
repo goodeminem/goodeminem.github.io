@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="apple-mobile-web-app-title" content="{$site_name}" />
+    <meta name="generator" content="openwbs {$version}" />
+    <meta name="author" content="openwbs team" />
+    <meta name="copyright" content="2008-2020 OpenWBS Inc." />
+    <!--#include file="include.css.html"-->
+    <link rel="stylesheet" href="../css/om.shop.cart.css" />
+</head>
+<body>
+<!--头部-->
+<header class="ow-header">
+    <div class="title">订单提交成功</div>
+    <!--#include file="include.top.nav.html"-->
+</header>
+
+
+<section class="mbody">
+    <div class="order-finish-info">
+        <h2 class="header">感谢您，订单提交成功！！</h2>
+        <div class="section">
+            <dl class="order-id"><dt>订单号：</dt><dd><a href="{$site_url}ow-ucenter/index.asp?ctl=orders&act=detail&order_id={$order:order_id}">{$order:order_id}</a></dd></dl>
+            <dl class="order-amount"><dt>总金额：</dt><dd>{$moneysb}{$order:total_amount}元</dd></dl>
+            <dl class="order-shipping"><dt>配送方式：</dt><dd>{$order:delivery_name}</dd></dl>
+            <dl class="order-payment"><dt>支付方式：</dt><dd>{$order:payment}</dd></dl>
+            <div class="order-desc">您的订单已经在处理中，如有必要请联系客服</div>
+        </div>
+        <div class="footer">
+            <a class="btn btn-primary" href="{$site_url}ow-ucenter/?ctl=orders">进入订单中心</a><a class="btn ml10" href="{$site_url}ow-ucenter/?ctl=orders&act=detail&order_id={$order:order_id}">查看订单详细</a>
+        </div>
+    </div>
+</section>
+<!--底部-->
+<!--#include file="include.footer.html"-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//导航不浮动
+	navFixing();
+	var $shipping = $(".order-shipping"),
+	$payment      = $(".order-payment");
+	if(OW.isNull($shipping.find("dd").html())){$shipping.hide();};
+	if(OW.isNull($payment.find("dd").html())){$payment.hide();};
+});
+</script>
+<% if OS.isJWeixinCanUse then %>
+<%=OS.getWeixinTicket%>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript">
+wx.config({
+    debug:false,appId:'<%=OS.weixinAppid%>',timestamp:'<%=OS.weixinTimestamp%>',nonceStr:'<%=OS.weixinNonceStr%>',signature:'<%=OS.weixinSignature%>',jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareQZone']
+});
+wx.ready(function(){
+	var wxTitle = '{$title}',
+	wxDesc      = '{$description}'
+	wxLink      = OW.currentURL(),
+	wxImgUrl    = '<%=OW.validImageUrl("{$config(share_default_img)}")%>';
+	wx.onMenuShareTimeline({title:wxTitle,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareAppMessage({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareQQ({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareQZone({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+});
+</script>
+<% end if %>
+</body>
+</html>

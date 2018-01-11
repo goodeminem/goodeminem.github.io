@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$title}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<meta name="generator" content="OpenWBS {$version}" />
+<meta name="author" content="OpenWBS Team" />
+<meta name="copyright" content="2008-2020 OpenWBS Inc." />
+<!--#include file="include.css.html"-->
+<link rel="stylesheet" href="../css/ow.download.css" />
+</head>
+<body>
+<!--头部-->
+<!--#include file="include.header.html"-->
+<div class="ow-top-banner">
+    <div class="section">
+        <div class="banner-title"><h1>{%=OW.DB.getFieldValueBySQL("SELECT [name] FROM ow_category WHERE cate_id={$content:root_id} AND "& OW.DB.auxSQL &"")%}</h1></div>
+        <div class="banner-subtitle">{%=OW.DB.getFieldValueBySQL("SELECT [subname] FROM ow_category WHERE cate_id={$content:root_id} AND "& OW.DB.auxSQL &"")%}</div>
+    </div>
+</div>
+<div class="clear"></div>
+
+
+<!--主内容区-->
+<div id="mbody">
+    <div class="ow-download-cates" id="cates">
+        <div class="wrapper">
+            {cate parent_id="{$content:root_id}"}
+            <ul>
+                <li class="n1"><a class="n1" href="{$site_hurl}<%=OW.DB.getFieldValueBySQL("SELECT [rootpath] FROM ow_content1 WHERE cid={$content:cid}")%>/">全部</a></li>
+                {cate:loop}<li class="n1 {if:OW.trim("{$page:cate_id}")=OW.trim("[cate:cate_id]")}current{/if}">
+                <a class="n1" href="[cate:link]#cates">[cate:name]{if:OW.int("[cate:children]")>0}<span class="caret"></span>{/if}</a>
+                    {if:OW.int("[cate:children]")>0}
+                        <div class="subcates">
+                            {cate2 parent_id="[cate:cate_id]"}
+                            <ul>
+                            {cate2:loop}
+                            <li class="sub"><a class="sub" href="[cate2:link]">[cate2:name]</a></li>
+                            {/cate2:loop}
+                            </ul>
+                            {/cate2}
+                        </div>
+                    {/if}
+                </li>{/cate:loop}
+            </ul>
+            {/cate}
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="wrapper">
+        <div class="ow-breadcrumb">{$breadcrumb}</div>
+        <!--内容详细-->
+        <div class="download-content">
+            <h1 class="title">{$content:title}</h1>
+            <div class="byline">
+                <span class="datetime">更新时间：{$content:post_time}</span><span class="views">浏览量：{$content:views}</span>
+            </div>
+            <div class="content ow-editor-content-text">
+                {$content:content}
+            </div>
+            <div class="tags">标签：
+                {tags cid="{$content:cid}"}
+                    {tags:loop}<a href="[tags:link]" title="[tags:tag]" target="_blank">[tags:tag]</a>{/tags:loop}
+                {/tags}
+            </div>
+            <div class="pager">{$content:pages}</div>
+            <div class="prev-next">
+                <div class="prev">上一篇：{$content:prev}</div>
+                <div class="next">下一篇：{$content:next}</div>
+            </div>
+            <div class="ow-related-content">
+                <div class="header">相关内容</div>
+                {content top="100" related_cid="{$content:cid}" model="faq"}
+                <ul>
+                    {content:loop}
+                    <li><a href="[content:link]">[content:title]</a></li>
+                    {/content:loop}
+                </ul>
+                {/content}
+            </div>
+            <div id="OWCMT"></div>
+        </div>
+</div>
+</div>
+
+<!--底部-->
+<!--#include file="include.footer.html"-->
+<script type="text/javascript" src="../js/cloudzoom.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#cates li.n1").hover(
+		function(){
+			$(this).find(".subcates").show();
+		},
+		function(){
+			$(this).find(".subcates").hide();
+		}
+	);
+	if(!$(".tags").find("a").length>0){$(".tags").remove();};
+	if($(".pager").html()==""){$(".pager").remove();};
+	if(!$(".ow-related-content").find("li").length>0){
+		$(".ow-related-content").remove();
+	};
+	//评论
+	$("#OWCMT").html('<div id="owcmt_post_section"></div><div class="ow-owcmt-list-header"><span class="cmt-count"><b id="owcmt_count_section">0</b>条评论</span>最新评论</div><div id="owcmt_list_section"></div><div class="pager" id="owcmt_pager_section"></div>');
+	OW.cmt.postSection  = $("#owcmt_post_section");
+	OW.cmt.countSection = $("#owcmt_count_section");
+	OW.cmt.listSection  = $("#owcmt_list_section");
+	OW.cmt.pagerSection = $("#owcmt_pager_section");
+	OW.cmt.pagesize = 20;
+	OW.cmt.init({cid:{$content:cid},gid:0});
+	OW.cmt.get({cid:{$content:cid},gid:0,page:0});
+});
+</script>
+</body>
+</html>

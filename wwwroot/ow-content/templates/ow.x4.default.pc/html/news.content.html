@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$title}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<meta name="generator" content="OpenWBS {$version}" />
+<meta name="author" content="OpenWBS Team" />
+<meta name="copyright" content="2008-2020 OpenWBS Inc." />
+<!--#include file="include.css.html"-->
+<link rel="stylesheet" href="../css/ow.news.css" />
+</head>
+<body style="background:#fff;">
+<!--头部-->
+<!--#include file="include.header.html"-->
+
+<div class="ow-banner">{ad id="2" type="html"}</div>
+
+<div id="mbody">
+    <div class="wrapper">
+        <div class="ow-breadcrumb"><div class="wrapper">{$breadcrumb}</div></div>
+        <div class="clear"></div>
+        <div class="ow-news-left-section">
+            <div class="ow-content-container">
+                <h1 class="title">{$content:title}</h1>
+                <div class="byline">
+                    <span class="datetime"><%=ow.formatdatetime("{$content:post_time}",2)%></span>{if:OW.trim("{$content:from}")<>""}<span class="from">来源：{$content:from}</span>{/if}{if:OW.trim("{$content:author}")<>""}<span class="author">作者：{$content:author}</span>{/if}<span class="views">浏览量：{$content:views}</span>
+                </div>
+                <div class="content ow-editor-content-text">{$content:content}</div>
+                <div class="tags" id="content_tags">标签：
+                    {tags cid="{$content:cid}"}
+                        {tags:loop}<a href="[tags:link]" title="[tags:tag]" target="_blank">[tags:tag]</a>{/tags:loop}
+                    {/tags}
+                </div>
+                <div class="ow-content-related-goods">
+                    {goods top="30" related_cid="{$content:cid}"}
+                    <ul>
+                        {goods:loop}
+                        <li class="li[goods:i]" gid="[goods:gid]" is_book="[goods:is_book]">
+                            <div class="thumb" name="thumbnail"><a href="[goods:link]" target="_blank"><img name="thumbnail" src="[goods:thumbnail]" alt="[goods:title]"></a></div>
+                            <div class="info">
+                                <h3 class="title"><a href="[goods:link]" target="_blank">[goods:title]</a></h3>
+                                {if:OW.isNotNul("[goods:subtitle]")}<div class="subtitle">[goods:subtitle]</div>{/if}
+                                <div class="price">{if:OW.int("[goods:point_set]")=1}<span class="point"><b>[goods:point_pay_amount]</b><em>积分</em><i>+</i></span>{/if}<span class="money"><em>{$moneysb}</em><b><%=OW.parsePrice("[goods:price]")%></b></span></div>
+                                <div class="buy"><a href="[goods:link]" target="_blank">立即购买</a></div>
+                            </div>
+                        </li>
+                        {/goods:loop}
+                    </ul>
+                    {/goods}
+                </div>
+                <div class="pager" id="content_pager">{$content:pages}</div>
+                <div class="prev-next">
+                    <div class="prev">上一篇：{$content:prev}</div>
+                    <div class="next">下一篇：{$content:next}</div>
+                </div>
+                <div class="ow-related-content">
+                    <div class="header">相关内容</div>
+                    {content top="100" related_cid="{$content:cid}" model="news"}
+                    <ul>
+                        {content:loop}
+                        <li><a href="[content:link]">[content:title]</a></li>
+                        {/content:loop}
+                    </ul>
+                    {/content}
+                </div>
+                <div id="OWCMT"></div>
+            </div>
+        </div>
+        <div class="ow-news-right-section">
+            <div class="ow-news-cates">
+                {cate parent_id="{$cate:parent_id}"}
+                <ul>
+                    {cate:loop}<li {if:OW.trim("{$content:cate_id}")=OW.trim("[cate:cate_id]")}class="current"{/if}><a href="[cate:link]#cates">[cate:name]</a></li>{/cate:loop}
+                </ul>
+                {/cate}
+            </div>
+            <div class="clear"></div>
+            <div class="ow-news-tags">
+                <h2 class="title">分类阅读</h2>
+                <div class="section" id="tags">
+                    {tags top="20" is_shop="0"}
+                    {tags:loop}<a href="[tags:link]" hits="[tags:hits]" target="_blank">[tags:tag]</a>{/tags:loop}
+                    {/tags}
+                </div>
+                <script type="text/javascript">
+                $(document).ready(function(){
+                    var hits,fontSize,maxHits=0,minHits=1000000000,$tags = $("#tags").find("a");
+                    $tags.each(function(){
+                        hits = parseInt($(this).attr("hits"));
+                        if(hits>maxHits){maxHits=hits};
+                        if(hits<minHits){minHits=hits};
+                    });
+                    $tags.each(function(){
+                        hits     = parseInt($(this).attr("hits"));
+                        fontSize = (hits-minHits)*(6/(maxHits-minHits));
+                        $(this).css("font-size",fontSize+12+"px");
+                    });
+                });
+                </script>
+            </div>
+            <div class="clear"></div>
+            <div class="ow-news-slist">
+                <h2 class="title">热门阅读</h2>
+                <div class="section">
+                    {content top="18" model="news" orderby="a.views desc"}
+                    <ul>
+                    {content:loop}
+                        <li><a title="[content:title]" target="_blank" href="[content:link]"><img alt="[content:title]" src="[content:thumbnail]"></a><h3><a title="[content:title]" target="_blank" href="[content:link]">[content:ctitle]</a></h3><p class="summary"><%=ow.left("[content:summary]",32)%> ... </p></li>
+                    {/content:loop}
+                    </ul>
+                    {/content}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+<!--#include file="include.footer.html"-->
+<script type="text/javascript">
+$(document).ready(function(){
+	if(!$("#content_tags").find("a").length>0){$("#content_tags").remove();};
+	if($("#content_pager").html()==""){$("#content_pager").remove();};
+	if(!$(".ow-related-content").find("li").length>0){
+		$(".ow-related-content").remove();
+	};
+	//评论
+	$("#OWCMT").html('<div id="owcmt_post_section"></div><div class="ow-owcmt-list-header"><span class="cmt-count"><b id="owcmt_count_section">0</b>条评论</span>最新评论</div><div id="owcmt_list_section"></div><div class="pager" id="owcmt_pager_section"></div>');
+	OW.cmt.postSection  = $("#owcmt_post_section");
+	OW.cmt.countSection = $("#owcmt_count_section");
+	OW.cmt.listSection  = $("#owcmt_list_section");
+	OW.cmt.pagerSection = $("#owcmt_pager_section");
+	OW.cmt.pagesize = 20;
+	OW.cmt.init({cid:{$content:cid},gid:0});
+	OW.cmt.get({cid:{$content:cid},gid:0,page:0});
+});
+</script>
+</body>
+</html>

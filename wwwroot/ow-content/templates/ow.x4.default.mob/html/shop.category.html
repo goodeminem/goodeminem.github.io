@@ -1,0 +1,154 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="apple-mobile-web-app-title" content="{$site_name}" />
+    <meta name="generator" content="openwbs {$version}" />
+    <meta name="author" content="openwbs team" />
+    <meta name="copyright" content="2008-2020 OpenWBS Inc." />
+    <!--#include file="include.css.html"-->
+</head>
+<body>
+<!--头部-->
+<header class="ow-header">
+    <a href="javascript:;" id="top_menu" class="menu"></a>
+    <div class="title">{$cate:name}</div>
+    <!--#include file="include.top.nav.html"-->
+    <div style="display:none;" id="top_menu_section" class="menu-section">
+        <div class="close"><a id="top_menu_close" href="javascript:;"></a></div>
+        <ul name="top-nav" class="top-nav">
+        {if:OW.int("{$cate:children}")>0}
+            {cate is_shop="1" parent_id="{$cate:cate_id}"}
+                {cate:loop}
+                <li><a href="[cate:link]">[cate:name]</a></li>
+                {/cate:loop}
+            {/cate}
+        {else}
+            {cate is_shop="1" parent_id="{$cate:parent_id}"}
+                {cate:loop}
+                <li><a href="[cate:link]">[cate:name]</a></li>
+                {/cate:loop}
+            {/cate}
+        {/if}
+        </ul>
+    </div>
+</header>
+
+
+<section class="mbody">
+    <div class="ow-filter-line">
+        <span class="type-filter" id="btn_type_filter"><em>商品筛选<i>+</i></em></span>
+        <span class="order"><a href="javascript:;" class="order-by-all" name="orderby" orderby="0-0"><i>默认排序</i></a><a href="javascript:;" class="order-by-sales" name="orderby" orderby="2-0"><i>销量</i></a><a href="javascript:;" class="order-by-price" name="orderby" orderby="1-0"><i>价格</i></a><a href="javascript:;" class="order-by-views" name="orderby" orderby="3-0"><i>人气</i></a><a href="javascript:;" class="order-by-views" name="orderby" orderby="4-1"><i>时间</i></a></span>
+    </div>
+    <div class="ow-content-type" id="om_content_type_section" style="display:none;">
+        <div class="section">
+            {typeattr type_cate_id="{$cate:type_cate_id}"}
+            {typeattr:loop}
+            <div class="type-line" i="[typeattr:i]">
+                <div class="type-attr">[typeattr:type_attr_name]</div>
+                <div class="type-value">
+                    <ul class="type-value-list">
+                        <li><a class="all" href="[typeattr:link]" name="typeattr" type_attr_id="[typeattr:type_attr_id]" target="_self">全部</a></li>
+                        {ctype type_attr_id="[typeattr:type_attr_id]"}
+                        {ctype:loop}
+                        <li><a href="[ctype:link]" name="ctype" type_id="[ctype:type_id]" target="_self">[ctype:type_name]</a></li>
+                        {/ctype:loop}
+                        {/ctype}
+                    </ul>
+                </div>
+            </div>
+            {/typeattr:loop}
+            {/typeattr}
+        </div>
+    </div>
+    
+    <div class="ow-shop-cate-goods" id="list">
+        <% V("orderby")=OW.iif(OW.trim("{$cate:orderby}")="sequence ASC","a.gid desc",OW.trim("{$cate:orderby}")) %>
+        {goods top="2000" cate_id="{$cate:cate_id}" list_by_type="{$cate:list_by_type}" orderby="{$cate:orderby}"}
+        <div class="section">
+            <ul class="ow-goods-horizlist">
+                {goods:loop}
+                <li>
+                    <a href="[goods:link]">
+                    <div class="thumb"><img src="[goods:thumbnail]" alt="[goods:title]" /></div>
+                    <div class="info">
+                        <h3 class="title">[goods:title]</h3>
+                        <div class="subtitle">[goods:summary]</div>
+                        <div class="price">{if:OW.int("[goods:point_set]")=1}<span class="point"><b>[goods:point_pay_amount]</b><em>积分</em><i>+</i></span>{/if}<span class="money"><em>{$moneysb}</em><b><%=OW.parsePrice("[goods:price]")%></b></span></div>
+                    </div>
+                    </a>
+                </li>
+                {/goods:loop}
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="pager">[goods:pages pagesize="30" pagetpl="{prev}{current}{next}"]</div>
+        </div>
+        {/goods}
+    </div>
+    
+</section>
+<!--底部-->
+<!--#include file="include.footer.html"-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//栏目菜单
+	OW.mobile.menu();
+	//商品筛选
+	$("#btn_type_filter").toggle(
+		function(){
+			$(this).find("em").html("商品筛选<i>-</i>");
+			$("#om_content_type_section").slideDown(100);
+		},function(){
+			$(this).find("em").html("商品筛选<i>+</i>");
+			$("#om_content_type_section").slideUp(100);
+		}
+	);
+	if($("#om_content_type_section").find(".type-line").length==0){
+		$("#om_content_type_section").hide();
+		$("#btn_type_filter").hide();
+	};
+	OW.client.typeInit({section:$("#om_content_type_section")});
+	//商品排序
+	OW.listOrderBy({obj:$("a[name='orderby']")});
+	//无商品
+	if($("#list").find("li").length==0){
+		$("#list").html('<div class="ow-none-goods-tip">暂无商品</div>');
+	};
+	//积分价格
+	$(".price").each(function(){
+		var price = OW.parseMoney($(this).find(".money > b").html());
+		if(!price>0){
+			$(this).find(".money").hide();
+			$(this).find(".point > i").hide();
+		};
+	});
+});
+</script>
+<% if OS.isJWeixinCanUse then %>
+<%=OS.getWeixinTicket%>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript">
+wx.config({
+    debug:false,appId:'<%=OS.weixinAppid%>',timestamp:'<%=OS.weixinTimestamp%>',nonceStr:'<%=OS.weixinNonceStr%>',signature:'<%=OS.weixinSignature%>',jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareQZone']
+});
+wx.ready(function(){
+	var wxTitle = '{$title}',
+	wxDesc      = '{$description}'
+	wxLink      = OW.currentURL(),
+	wxImgUrl    = '<%=OW.validImageUrl("{$config(share_default_img)}")%>';
+	wx.onMenuShareTimeline({title:wxTitle,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareAppMessage({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareQQ({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+	wx.onMenuShareQZone({title:wxTitle,desc:wxDesc,link:wxLink,imgUrl:wxImgUrl});
+});
+</script>
+<% end if %>
+</body>
+</html>

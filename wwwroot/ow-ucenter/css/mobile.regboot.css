@@ -1,0 +1,28 @@
+@charset "utf-8";
+/** 
+Author : DX.Lin
+**/
+.ow-header{ background-color:#26293a; color:#fff; font-size:14px; height:44px; line-height:44px;}
+.ow-header .title{ font-size:16px; font-weight:normal; padding:0px 10px;}
+.ow-regboot-footer{ color:#aaa; height:32px; line-height:32px; padding:2px 10px; text-align:center;}
+.ow-regboot-footer a,
+.ow-regboot-footer a:visited{ color:#aaa;}
+
+.ow-reg-success{ margin:auto; padding:0px 10px }
+.ow-reg-success h1{ border-bottom:1px dashed #aaa; font-size:24px; font-weight:normal; padding:15px 0px;}
+.ow-reg-success .section{ font-size:14px; padding:20px 0px;}
+.ow-reg-success .do-line{ padding:30px 0px;}
+.ow-reg-success .do-line .btn{ margin:10px 0px; width:100%;}
+
+.ow-formset{ background:#fff; margin:0px auto;}
+.ow-formset .avatar-section{ font-size:14px; height:52px; padding:12px 15px; }
+.ow-formset .avatar-section .avatar{float:left; }
+.ow-formset .avatar-section .avatar img{ height:52px; width:52px;}
+.ow-formset .avatar-section .userinfo .nickname{ color:#222; padding:0px 0px 0px 62px;}
+.ow-formset .avatar-section .userinfo .username{ color:#888; padding-left:60px;}
+
+#set_mobile_password .get-mobile-code{ background:#f6f6f6; border:1px solid #aaa; display:inline-block; font-size:14px; height:38px; line-height:38px; width:110px; padding:0px; text-align:center; vertical-align:top; overflow:hidden;}
+#set_mobile_password .get-mobile-code:hover{ text-decoration:none;}
+#set_mobile_password .get-mobile-code i{ font-style:normal;}
+#set_mobile_password .get-mobile-code.disabled{ border-color:#bbb; color:#888;}
+#set_mobile_password .verifycode .fresh{ display:none; }

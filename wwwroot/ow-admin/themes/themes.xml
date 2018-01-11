@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<themes>
+<theme>
+	<folder>default</folder>
+	<name>默认风格</name>
+	<preview>preview.jpg</preview>
+	<author>OpenWBS</author>
+	<time>2014-06-13 18:00:00</time>
+</theme>
+<theme>
+	<folder>green</folder>
+	<name>绿色风格</name>
+	<preview>preview.jpg</preview>
+	<author>OpenWBS</author>
+	<time>2014-06-13 18:00:00</time>
+</theme>
+<theme>
+	<folder>black</folder>
+	<name>黑色风格</name>
+	<preview>preview.jpg</preview>
+	<author>OpenWBS</author>
+	<time>2014-06-13 18:00:00</time>
+</theme>
+</themes>

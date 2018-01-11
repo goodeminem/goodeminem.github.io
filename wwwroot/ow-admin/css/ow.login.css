@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* 
+* Author: linxiaodong (1071322670@qq.com)
+*/
+body{ background-color:#284174;
+      background-image:radial-gradient(circle farthest-side at center top , #7a8db2 0%, #284174 100%);
+	  min-width:600px;
+	  font-family:tahoma,arial,"Hiragino Sans GB","Microsoft Yahei",宋体;
+	  
+	}
+/*body{ background-image:url("../images/login-body-bg.png"); background-position:center center; background-repeat:no-repeat;}*/
+.login{ height:100%;}
+.login-form{
+	background-color:#fff;
+	background:rgba(255,255,255,1);
+	border-radius:3px;
+	-webkit-box-shadow:rgba(0,0,0,0.3) 0px 0px 5px;
+	-moz-box-shadow:rgba(0,0,0,0.3) 0px 0px 5px;
+	box-shadow:rgba(0,0,0,0.3) 0px 0px 5px;
+	display:inline-block;
+	margin:10px auto; padding:18px 50px 35px 50px;
+	max-width:500px;
+	}
+.login-form .header{ color:#3E5E9C; font-size:24px; padding:0px 0px 12px 0px;}
+.login-form input.text{ border:1px solid #aaa; background:#fff; font-size:22px; height:32px; line-height:32px; padding:2px 2px 2px 36px; width:260px;}
+.login-form input.username{ background:url("../images/icons/icon-user.png") 6px center no-repeat;}
+.login-form input.password{ background:url("../images/icons/icon-lockopen.png") 6px center no-repeat;}
+.login-form input.verifycode{ background:url("../images/icons/icon-verifycode.png") 8px center no-repeat; float:left; width:108px;}
+
+.login-form dl{ }
+.login-form dl dt{ color:#aaa; padding:0px 0px 5px 0px;}
+.login-form dl dd{ padding:0px 0px 5px 0px; zoom:1; overflow:auto;}
+
+.login-form .t-normal{ height:36px; line-height:36px; padding:0px 0px 0px 2px;}
+
+.verifycode img{ float:left; height:36px; margin-left:4px; width:108px;}
+.verifycode a.fresh{ background:#fff; border:1px solid #666; display:inline-block; float:left; height:36px; line-height:36px; padding:0px 6px;}
+.verifycode a.fresh:hover{ background:#e6e6e6; text-decoration:none;}
+
+.login-form .buttons{ padding:10px 0px 0px 0px; }
+
+.btn-login{ background-color:#222; border:none; color:#fff; font-size:22px; font-family:tahoma,arial,"Hiragino Sans GB","Microsoft Yahei",宋体;}
+.btn-login{ height:48px; line-height:48px; width:300px;}
+.btn-login:active{ background-color:rgba(0,0,0,0.8);}
+
+.actions{ padding-top:10px;}
+.actions .forget-password{}
+.forget-password,.forget-password:visited{ color:#333;}
+
+
+
+
+
+
+

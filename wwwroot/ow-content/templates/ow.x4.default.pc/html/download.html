@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$title}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<meta name="generator" content="OpenWBS {$version}" />
+<meta name="author" content="OpenWBS Team" />
+<meta name="copyright" content="2008-2020 OpenWBS Inc." />
+<!--#include file="include.css.html"-->
+<link rel="stylesheet" href="../css/ow.download.css" />
+</head>
+<body>
+<!--头部-->
+<!--#include file="include.header.html"-->
+<div class="ow-banner">{ad id="2" type="html"}</div>
+
+<!--主内容区-->
+<div id="mbody">
+    <div class="ow-download-cates" id="cates">
+        <div class="wrapper">
+            {cate parent_id="{$cate:cate_id}"}
+            <ul>
+                <li class="n1"><a class="n1" href="{$site_hurl}<%=OW.DB.getFieldValueBySQL("SELECT [urlpath] FROM ow_category WHERE cate_id={$cate:cate_id} AND "& OW.DB.auxSQL &"")%>/">全部</a></li>
+                {cate:loop}<li class="n1 {if:OW.trim("{$page:cate_id}")=OW.trim("[cate:cate_id]")}current{/if}">
+                <a class="n1" href="[cate:link]#cates">[cate:name]{if:OW.int("[cate:children]")>0}<span class="caret"></span>{/if}</a>
+                    {if:OW.int("[cate:children]")>0}
+                        <div class="subcates">
+                            {cate2 parent_id="[cate:cate_id]"}
+                            <ul>
+                            {cate2:loop}
+                            <li class="sub"><a class="sub" href="[cate2:link]">[cate2:name]</a></li>
+                            {/cate2:loop}
+                            </ul>
+                            {/cate2}
+                        </div>
+                    {/if}
+                </li>{/cate:loop}
+            </ul>
+            {/cate}
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="wrapper">
+        <div class="ow-breadcrumb"><div class="wrapper">{$breadcrumb}</div></div>
+        <div class="ow-download">
+            <div class="ow-content-type" id="type_section">
+                <div class="type-header">筛选</div>
+                <div class="type-section">
+                    {typeattr type_cate_id="{$cate:type_cate_id}"}
+                    {typeattr:loop}
+                    <div class="type-line" i="[typeattr:i]">
+                        <div class="type-attr">[typeattr:type_attr_name]：</div>
+                        <div class="type-value">
+                            <ul class="type-value-list">
+                            <li><a href="[typeattr:link]" name="typeattr" type_attr_id="[typeattr:type_attr_id]" target="_self">不限</a></li>
+                            {ctype type_attr_id="[typeattr:type_attr_id]"}
+                            {ctype:loop}
+                            <li><a href="[ctype:link]" name="ctype" type_id="[ctype:type_id]" target="_self">[ctype:type_name]</a></li>
+                            {/ctype:loop}
+                            {/ctype}
+                            </ul>
+                        </div>
+                    </div>
+                    {/typeattr:loop}
+                    {/typeattr}
+                </div>
+            </div>
+            {content top="2000" cate_id="{$cate:cate_id}" model="download"}
+            <div class="section">
+                {content:loop}
+                <ul class="ow-download-list">
+                    <li class="li[content:i]">
+                        <h3><a href="[content:link]" target="_blank">[content:ctitle]</a></h3>
+                        <div class="byline"><span class="views">浏览量：[content:views]</span><span class="datetime">更新时间：[content:post_time]</span></div>
+                        <div class="summary">[content:summary]</div>
+                    </li>
+                </ul>
+                {/content:loop}
+                <div class="pager">
+                [content:pages pagesize="20"]
+                </div>
+            </div>
+            {/content}
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+<!--#include file="include.footer.html"-->
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#cates li.n1").hover(
+		function(){
+			$(this).find(".subcates").show();
+		},
+		function(){
+			$(this).find(".subcates").hide();
+		}
+	);
+	OW.client.typeInit({section:$("#type_section")});
+	if($("#type_section").find("li").length==0){$("#type_section").hide();};
+});
+</script>
+</body>
+</html>

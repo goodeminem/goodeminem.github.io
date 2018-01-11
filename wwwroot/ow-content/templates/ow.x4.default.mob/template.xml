@@ -1,0 +1,9 @@
+﻿<template version="1.1">
+<preview>preview.png</preview>
+	<name>X4 默认手机端中文模版</name>
+	<ismobile>yes</ismobile>
+	<demo>http://x4.demo.openwbs.com/</demo>
+	<author>OpenWBS 官方UI设计团队</author>
+	<website>http://www.openwbs.com/</website>
+	<description>OpenWBS X4 企业电商版手机端中文模版</description>
+</template>

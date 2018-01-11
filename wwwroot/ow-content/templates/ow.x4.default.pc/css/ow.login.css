@@ -1,0 +1,113 @@
+@charset "utf-8";
+/*登陆*/
+#mbody{ background-color:#f8f8f8; width:100%;}
+.ow-login{ margin:0px auto; padding:30px 0px 20px 0px; width:1200px; }
+.ow-login:after{ clear:both; content:"."; display:block; height:0; visibility:hidden;}
+.ow-login-main-section{ padding:20px 20px 60px 40px; float:left; width:600px;}
+.ow-login-main-section h1{ font-size:22px; font-weight:normal;}
+.ow-login-main-section .user-login-close{ font-size:14px; padding:20px 0px;}
+.ow-login-aux-section{ border-left:1px solid #eee; float:left; font-size:14px; margin:80px 0px 0px 0px; padding:0px 0px 0px 70px; width:400px;}
+.ow-login-aux-section .reg-btns{ padding-top:10px;}
+.ow-login-apps{ padding:30px 0px 0px 0px;}
+.ow-login-apps .header{ color:#888; font-size:12px;}
+.ow-login-apps .section{ font-size:12px; padding:10px 0px 0px 0px;}
+.ow-login-apps .section a.app-login{ background:#fff; background-position:6px center; background-repeat:no-repeat; border:1px solid #e6e6e6; display:inline-block; font-size:18px; height:36px; line-height:36px; margin-right:10px;  padding:6px 16px 6px 52px;  -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px;}
+.ow-login-apps .section a.app-login:hover{ background-color:#fafafa; border-color:#01b402; color:#01b402; text-decoration:none;}
+.ow-login-apps .section a.app-weixin{ background-image:url("../images/icon-app-weixin.png"); width:150px;}
+.ow-login-apps .section a.app-qq{ background-image:url("../images/icon-app-qq.png"); margin:10px 0px 0px 0px; width:150px;}
+
+.form-login{ padding:20px 0px 0px 0px;}
+.form-login dl{ padding:10px 0px;}
+.form-login dl dt{ float:left; font-size:14px; padding:4px 12px 0px 0px; text-align:right; width:130px;}
+.form-login dl dd{ padding-left:142px; }
+.form-login dl dd input.text{ font-size:14px; height:32px; line-height:32px; width:240px; }
+.form-login dl dd input.text-verifycode{ width:80px;}
+.form-login dl dd .verifycode{}
+.form-login dl dd .verifycode img{ height:32px; vertical-align:middle;}
+.form-login dl dd .verifycode .fresh{ background:#f8f8f8; border:1px solid #aaa; display:inline-block; font-size:14px; font-family:"微软雅黑"; height:32px; line-height:32px; width:39px; text-align:center;  vertical-align:top; overflow:hidden;}
+.form-login dl dd .verifycode .fresh:hover{ text-decoration:none;}
+.form-login dl dd .remember{ margin-right:20px;}
+
+/*注册*/
+.ow-reg{ margin:0px auto; padding:30px 0px 20px 0px; width:1200px; }
+.ow-reg:after{ clear:both; content:"."; display:block; height:0; visibility:hidden;}
+.ow-reg-main-section{ padding:20px 20px 60px 20px; float:left; width:700px;}
+.ow-reg-main-section h1{ font-size:22px; font-family:"微软雅黑"; font-weight:normal;}
+.ow-reg-main-section .user-reg-close{ font-size:14px; padding:20px 0px;}
+.ow-reg-aux-section{ border-left:1px solid #eee; float:left; font-size:14px; margin:70px 0px 0px 0px; padding:0px 0px 0px 60px; width:300px;}
+.ow-reg-aux-section .login-btns{ padding-top:10px;}
+
+.form-reg{ padding:20px 0px 0px 0px;}
+.form-reg dl{ padding:10px 0px;}
+.form-reg dl dt{ float:left; font-size:14px; padding:4px 12px 0px 0px; text-align:right; width:130px;}
+.form-reg dl dd{ padding-left:142px; }
+.form-reg dl dd input.text{ font-size:14px; height:32px; line-height:32px; }
+.form-reg dl dd input.text-login{width:240px;}
+.form-reg dl dd input.text-verifycode{ width:80px;}
+.form-reg dl dd input.text-mobile-code{ width:100px;}
+.form-reg dl dd input.text-recommend-user{ width:150px;}
+.form-reg dl dd .get-mobile-code{ background:#f6f6f6; border:1px solid #aaa; display:inline-block; font-size:14px; height:34px; line-height:32px; width:138px; text-align:center;  vertical-align:top; overflow:hidden;}
+.form-reg dl dd .get-mobile-code:hover{ text-decoration:none;}
+.form-reg dl dd .get-mobile-code i{ font-style:normal;}
+.form-reg dl dd .get-mobile-code.disabled{ border-color:#bbb; color:#888;}
+.form-reg dl dd .verifycode img{ height:32px; vertical-align:middle;}
+.form-reg dl dd .verifycode .fresh{ background:#f6f6f6; border:1px solid #aaa; display:inline-block; font-size:14px; height:32px; line-height:32px; width:39px; text-align:center;  vertical-align:top; overflow:hidden;}
+.form-reg dl dd .verifycode .fresh:hover{ text-decoration:none;}
+
+
+/*用户退出页面*/
+div.logout{ font-size:24px; font-weight:bold; min-height:114px; padding:150px 50px 150px 50px; text-align:center; width:1200px;}
+
+/*找回密码*/
+.ow-forget{ margin:0px auto; min-height:400px; padding:30px 0px 100px 0px; width:1200px; }
+.ow-forget h1{ font-size:24px; font-weight:normal; padding:20px 50px 10px 60px;}
+.ow-forget .header{ padding:10px 50px 10px 50px; zoom:1; overflow:auto; }
+.ow-forget .header ul{ border-bottom:1px solid #ddd; height:39px; line-height:39px; padding-left:10px;}
+.ow-forget .header li{ display:inline-block; float:left;}
+.ow-forget .header li a{ background-color:#eee; border:1px solid #ddd; display:block; color:#666; font-size:14px; height:38px; line-height:38px; text-align:center; width:200px; }
+.ow-forget .header li a:hover{ color:#222; border-color:#ccc; text-decoration:none;}
+.ow-forget .header li.current a{ background-color:#f8f8f8; border:1px solid #ddd; border-bottom-color:#f8f8f8;}
+.ow-forget .section{ padding:10px 50px 10px 30px;}
+.ow-forget .success-tip{ font-size:14px; padding:10px 0px 10px 30px;}
+
+.form-forget{ padding:20px 0px 0px 0px;}
+.form-forget dl{ padding:10px 0px;}
+.form-forget dl dt{ float:left; font-size:14px; padding:4px 12px 0px 0px; text-align:right; width:130px;}
+.form-forget dl dd{ padding-left:142px; }
+.form-forget dl dd input.text{ font-size:14px; height:32px; line-height:32px; }
+.form-forget dl dd input.text-login{width:240px;}
+.form-forget dl dd input.text-verifycode{ width:80px;}
+.form-forget dl dd input.text-mobile-code{ width:100px;}
+.form-forget dl dd .get-mobile-code{ background:#f6f6f6; border:1px solid #aaa; display:inline-block; font-size:14px; height:34px; line-height:32px; width:138px; text-align:center;  vertical-align:top; overflow:hidden;}
+.form-forget dl dd .get-mobile-code:hover{ text-decoration:none;}
+.form-forget dl dd .get-mobile-code i{ font-style:normal;}
+.form-forget dl dd .get-mobile-code.disabled{ border-color:#bbb; color:#888;}
+.form-forget dl dd .verifycode img{ height:32px; vertical-align:middle;}
+.form-forget dl dd .verifycode .fresh{ background:#f6f6f6; border:1px solid #aaa; display:inline-block; font-size:14px; height:32px; line-height:32px; width:39px; text-align:center;  vertical-align:top; overflow:hidden;}
+.form-forget dl dd .verifycode .fresh:hover{ text-decoration:none;}
+.form-forget dl.button dd .btn{ width:240px;}
+
+.form-forget-reset dl.username dt{ padding-top:0px;}
+.form-forget-reset dl.username dd{ color:#d30000; font-size:14px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

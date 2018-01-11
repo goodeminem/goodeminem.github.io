@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td { border-top:1px solid #dddddd; line-height:1.428571429; padding:3px 8px; vertical-align:top; }
+.table > thead > tr > th { border-bottom: 2px solid #dddddd; vertical-align: bottom; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

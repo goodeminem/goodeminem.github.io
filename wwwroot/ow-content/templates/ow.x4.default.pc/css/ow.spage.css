@@ -1,0 +1,59 @@
+﻿@charset "utf-8";
+/* 
+* Author:lin xiao dong (1071322670@qq.com)
+* http://www.openwbs.com/
+* OpenWBS V4.0_20160920
+*/
+
+.ow-spage-header ul{ padding:20px 0px; zoom:1; overflow:auto; text-align:center;}
+.ow-spage-header ul li{ display:inline; padding:0px 0px;}
+.ow-spage-header ul li a{ background-color:#fff; border:1px solid #e6e6e6; display:inline-block; font-size:16px; height:24px; line-height:24px; margin-left:-1px; padding:6px 26px;}
+.ow-spage-header ul li a:hover{ text-decoration:none;}
+.ow-spage-header ul li.current a{ background-color:#2993df; border-color:#2993df; color:#fff; text-decoration:none;}
+
+.ow-spage-content{ margin:0px auto; width:1200px; padding:0px 0px 30px 0px;}
+.ow-spage-content .section{ font-size:16px;}
+.ow-spage-content .section h1.title{ font-family:幼圆; font-size:32px; font-weight:normal; margin:30px 0px; text-align:center;}
+.ow-spage-content .section h1.title span{ border-bottom:2px solid #ddd; display:inline-block; padding:0px 10px 0px 10px;}
+.ow-spage-content-detail{ min-height:200px; padding:20px 0px;}
+.ow-spage-content-detail img{ max-width:1200px;}
+
+
+/**招聘**/
+.ow-join{ font-size:14px;}
+.ow-join-section{ margin:auto; width:1200px;}
+.ow-join a,
+.ow-join a:visited{ color:#44aaf0; }
+.ow-join .top-mess{ font-size:16px; padding:30px 0px 30px 0px;}
+.ow-join .join-mail a { background:#008bea; color:#fff; display:inline-block; height:45px; line-height:45px; padding:0px 40px; text-align:center; text-decoration:none;}
+.ow-join .join-mail a:hover{ background:#0381d6;}
+.ow-join .join-department{ padding:30px 0px;}
+.ow-join .join-department dl { float:left; margin-right:20px; padding:0px; width:280px; }
+.ow-join .join-department dl dt{ font-size:20px;}
+.ow-join .join-department dl dd{ height:24px; line-height:24px; padding:5px 0px 0px 0px;}
+
+.ow-join .join-joblist{ padding:30px 0px;}
+.ow-join .join-joblist ul{}
+.ow-join .join-joblist ul li{ border-top:1px dashed #ddd; padding:15px 0px 25px 0px;}
+.ow-join .join-joblist ul li h2{ padding:10px 0px;}
+.ow-join .join-joblist ul li h2 a,
+.ow-join .join-joblist ul li h2 a:visited{ color:#333; font-size:20px;}
+.ow-join .join-joblist ul li h2 a:hover{ text-decoration:none;}
+.ow-join .join-joblist ul li .join-detail{ line-height:28px;}
+
+/*内容详细*/
+.ow-content-container{ background:#fff; border:1px solid #e6e6e6; min-height:600px; margin:15px auto; width:1200px;}
+.ow-content-container h1.title{ font-size:24px; font-weight:normal; margin:0px 20px; padding:15px 0px 10px 0px; }
+.ow-content-container .byline{ color:#aaa; line-height:12px; font-size:12px; margin:0px 20px; padding:0px 0px 0px 0px;}
+.ow-content-container .byline span{ border-right:1px solid #bbb; display:inline-block; height:12px; line-height:12px; margin:0px 8px 0px 0px; padding:0px 8px 0px 0px;}
+.ow-content-container .byline span.views{ border-right:none; }
+.ow-content-container .byline a,.ow-content-container .byline a:visited { color:#aaa;}
+.ow-content-container .byline a:hover{ color:#333; text-decoration:none;}
+.ow-content-container .content{ font-size:16px; line-height:200%; margin:0px 20px; padding:20px 0px 20px 0px; word-break:break-all; word-wrap:break-word;}
+.ow-content-container .content img{}
+.ow-content-container .tags { font-size:14px; margin:0px 20px; padding:5px 0px;}
+.ow-content-container .tags a{ margin:0px 5px 0px 0px;}
+.ow-content-container .pager { margin:0px 20px; padding:30px 0px 30px 0px; text-align:center;}
+.ow-content-container .prev-next{ border-top:1px dotted #ddd; font-size:14px; margin:20px 20px 10px 20px; padding:10px 0px;}
+.ow-content-container .prev-next .prev{ height:24px; padding:4px 0px;}
+.ow-content-container .prev-next .next{ height:24px; padding:4px 0px;}

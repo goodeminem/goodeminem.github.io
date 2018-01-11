@@ -1,0 +1,47 @@
+﻿@charset "utf-8";
+html {font-size:100%; -webkit-text-size-adjust:none; -ms-text-size-adjust:100%; }
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td {margin:0;padding:0}
+body,button,input,select,textarea,th {
+	color:#4d4d4d;
+	font:12px/1.8 "微软雅黑","Helvetica Neue",Helvetica,Arial,Tahoma,sans-serif;
+	}
+h1,h2,h3,h4,h5,h6 {font-size:100%;}
+li {list-style:none}
+img { border:0px; page-break-inside:avoid; margin:0px; padding:0px; -ms-interpolation-mode:bicubic; max-width:100%; vertical-align:middle;}
+input[type="button"],input[type='submit'] {cursor:pointer}
+button {cursor:pointer}
+table {border-collapse:collapse;border-spacing:0}
+a {text-decoration:none;}
+a,a:visited {color:#333;}
+a:hover {color:#0070d9;text-decoration:underline;}
+:focus {outline:none;}
+button,input,textarea,select,a,a:focus {outline:none;}
+body { background-color:#fff; padding-top:35px;}
+
+.ow-console-header{
+	background:#f2f2f2; border-bottom:1px solid #ccc; font-size:14px; height:14px; line-height:14px; padding:10px 15px 11px 40px; position:fixed; top:0px; width:100%;
+	-webkit-box-shadow:rgba(0,0,0,0.15) 0px 0px 2px; -moz-box-shadow:rgba(0,0,0,0.15) 0px 0px 2px; box-shadow:rgba(0,0,0,0.15) 0px 0px 2px;
+}
+.ow-console-header a{ color:#0062bd;}
+.ow-console-header .sep{ color:#aaa; display:inline-block; font-size:10px; height:14px; line-height:14px; vertical-align:middle; padding:0px 25px;}
+.ow-console-header .v{ padding:0px 5px 0px 0px;}
+.ow-console-content{ font-family:Verdana, Geneva, sans-serif; padding:15px 15px 100px 15px;}
+.ow-console-content .db-sql{}
+.ow-console-content .sql{ color:#21720b;}
+.ow-console-content .text{ color:#222;}
+.ow-console-content .error{ color:#F00; padding-left:10px; }
+.ow-console-content .url{ color:#00F; padding-left:10px;}
+.ow-console-content .runtime-all{ color:#903; padding-left:10px; }
+.ow-console-content .runtime-all em{ color:#903; padding-left:3px; font-style:normal;}
+.ow-console-content .runtime-item{ color:#888; padding-left:10px;}
+
+.ow-console-item{}
+.ow-console-start{ border-top:1px solid #ccc; margin:10px 0px 0px 0px; padding:5px 0px 5px 0px;}
+.ow-console-start .text{ font-weight:bold;}
+
+
+
+
+
+
+

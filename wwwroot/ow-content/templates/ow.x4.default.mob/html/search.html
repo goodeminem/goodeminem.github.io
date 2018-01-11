@@ -1,0 +1,60 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="apple-mobile-web-app-title" content="{$site_name}" />
+    <meta name="generator" content="openwbs {$version}" />
+    <meta name="author" content="openwbs team" />
+    <meta name="copyright" content="2008-2020 OpenWBS Inc." />
+    <!--#include file="include.css.html"-->
+</head>
+<body>
+<!--头部-->
+<header class="ow-header">
+    <a href="{$site_url}" class="goback"></a>
+    <div class="title">{$search:keyword}</div>
+    <!--#include file="include.top.nav.html"-->
+</header>
+
+<section class="mbody">
+    <h1 class="ow-search-header">"{$search:keyword}" 搜索结果</h1>
+    <div class="ow-cate-content" id="search_result">
+        {content top="2000" keyword="{$search:keyword}"}
+        <div class="section">
+            <ul class="ow-article-list">
+            {content:loop}
+                <li class="li[content:i]"><a href="[content:link]"><h3 class="title">[content:title]</h3></a></li>
+            {/content:loop}
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="pager">[content:pages pagesize="20" pagetpl="{prev}{current}{next}"]</div>
+        </div>
+        {/content}
+    </div>
+</section>
+<script type="text/javascript">
+$(window).ready(function(){
+	var keyword = "{$search:keyword}";
+	if(!OW.isNull(keyword)){
+		$("#search_result li a").each(function(){
+			var text = $(this).html();
+			if(text.indexOf(keyword)>-1){
+				text = OW.reps(text,keyword,'<font class="keywords">'+keyword+'</font>');
+			};
+			$(this).html(text);
+		});
+	};
+});
+</script>
+
+<!--底部-->
+<!--#include file="include.footer.html"-->
+
+</body>
+</html>

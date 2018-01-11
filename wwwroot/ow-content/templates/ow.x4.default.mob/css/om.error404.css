@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* 
+http://www.openwbs.com/
+*/
+.ow-error404{ background:#fcfcfc; border-bottom-color:#bcbdbd; height:100%; padding:50px 20px;}
+.ow-error404 dl{}
+.ow-error404 dl dt{ font-size:16px;}
+.ow-error404 dl dd.tip-1{ border-top:1px dotted #ccc; font-size:14px; padding:10px 0px;}
+
+.ow-error404 .referer{ padding:10px 0px;}

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>订单({$order_id})确认邮件</title>
+</head>
+<body>
+<table border="0" cellpadding="5" cellspacing="0" style="color:#222; font-size:14px; line-height:200%;">
+<tr><td><strong>亲爱的{$shop_name}用户，您好：</strong></td></tr>
+<tr><td>感谢您在{$shop_name}购物！有关您订单的处理状态，将在"个人中心-我的订单-<a href="{$order_detail_url}" target="_blank">订单详细</a>"中更新，请您随时关注。</td></tr>
+<tr style="background:#fff;"><td>
+<div><span style="padding-right:10px;">订单编号：<strong>{$order_id}</strong></span><span>下单时间：</span>{$date_added}</div>
+<div><span style="padding-right:10px;">商品总金额：<strong>{$moneysb}{$cost_item}</strong></span></div>
+<div><span style="padding-right:10px;">订单总金额：<strong>{$moneysb}{$total_amount}</strong></span></div>
+<div><span style="padding-right:10px;">是否预订：<strong>{$is_book}</strong></span></div>
+<div><span style="padding-right:10px;">预付款：<strong>{$book_front_money}</strong></span></div>
+<div><span style="padding-right:10px;">预订预计到货时间：<strong>{$book_arrival_time}</strong></span></div>
+
+</td></tr>
+<tr><td>
+<div><strong>商品信息</strong></div>
+<div>{$order_goods}</div>
+</td></tr>
+</table>
+</body>
+</html>
